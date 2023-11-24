@@ -1,12 +1,16 @@
     package com.example.demo2;
 
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 
-public class InicioSesionControlador {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+    public class InicioSesionControlador implements Initializable {
 
     @FXML
     private Text feedbackText;
@@ -19,6 +23,11 @@ public class InicioSesionControlador {
 
     @FXML
     private ComboBox<String> planComboBox;
+
+        @Override
+        public void initialize(URL location, ResourceBundle resources) {
+
+        }
 
     @FXML
     protected void onLoginButtonClick() {
@@ -50,4 +59,6 @@ public class InicioSesionControlador {
             feedbackText.setText("Plan seleccionado: " + selectedPlan);
         }
     }
-}
+
+
+    }

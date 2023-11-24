@@ -7,7 +7,8 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox alignment="CENTER" spacing="10.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17.0.2-ea" fx:controller="com.example.demo2.InicioSesionControlador">
+<VBox alignment="CENTER" spacing="10.0" xmlns:fx="http://javafx.com/fxml/1"
+      xmlns="http://javafx.com/javafx/17.0.2-ea" fx:controller="com.example.demo2.InicioSesionControlador">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
@@ -36,7 +37,6 @@
         <items>
             <FXCollections fx:factory="observableArrayList">
                 <String fx:value="Básico" />
-                <String fx:value="Estándar" />
                 <String fx:value="Premium" />
             </FXCollections>
         </items>
