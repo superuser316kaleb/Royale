@@ -1,5 +1,6 @@
     package com.example.demo2;
 
+    import com.example.demo2.modelo.Usuario;
     import javafx.event.ActionEvent;
     import javafx.fxml.FXML;
     import javafx.fxml.Initializable;
@@ -13,6 +14,11 @@
 
     public class RegistroUsuarioControlador implements Initializable {
 
+
+
+        public TextField cardField;
+        public TextField dateField;
+        public TextField cvvField;
         @FXML
         private Text feedbackText;
 
@@ -20,10 +26,10 @@
         private TextField usernameField, nameField, emailField;
 
         @FXML
-        private PasswordField passwordField;
+        private PasswordField passwordField,passwordField2;
 
         @FXML
-        private ComboBox<String> planComboBox;
+        private ComboBox<String> planComboBox,methodComboBox;
 
         @Override
         public void initialize(URL location, ResourceBundle resources) {
@@ -37,23 +43,42 @@
             String name = nameField.getText();
             String email = emailField.getText();
             String selectedPlan = planComboBox.getValue();
+            String password2 = passwordField2.getText();
 
             // Lógica de inicio de sesión
-            if (username.isEmpty() || password.isEmpty() || name.isEmpty() || email.isEmpty() || selectedPlan.isEmpty()) {
+            if (username.isEmpty() || password.isEmpty() || name.isEmpty() || email.isEmpty()
+                    || selectedPlan.isEmpty()|| password2.isEmpty()) {
                 feedbackText.setText("Por favor, llena todos los campos.");
             } else {
-                // Aquí iría la lógica para verificar las credenciales del usuario
-                feedbackText.setText("Inicio de sesión exitoso para el plan: " + selectedPlan);
+                if (password.equals(password2)) {
+                    feedbackText.setText("Registro exitoso para el plan: " + selectedPlan);
+                    // Aquí iría la lógica para verificar las credenciales del usuario
+                    feedbackText.setText("Creación de usuario "+selectedPlan+" exitosa.");
+                } else {
+                    feedbackText.setText("Las contraseñas no coinciden.");
+                    limpiarCampos();
+                }
             }
         }
-        @FXML
-        protected void onSelectPlanClick() {
+        protected void getUserInfo(){
+            String username = usernameField.getText();
+            String password = passwordField.getText();
+            String name = nameField.getText();
+            String email = emailField.getText();
             String selectedPlan = planComboBox.getValue();
-            if (selectedPlan == null || selectedPlan.trim().isEmpty()) {
-                feedbackText.setText("Por favor, selecciona un plan.");
-            } else {
-                feedbackText.setText("Plan seleccionado: " + selectedPlan);
-            }
+            Usuario usuario = new Usuario();
+            usuario.setNombre(name);
+            usuario.setEmail(email);
+            usuario.setPassword(password);
+            usuario.setMetodoPago(Integer.parseInt(methodComboBox.getValue()));
+            usuario.setTelefono(Integer.parseInt(cardField.getText()));
+            usuario.setDireccion(dateField.getText());
+            usuario.setId_subscription(Integer.parseInt(cvvField.getText()));
+
+        }
+        protected void limpiarCampos(){
+            passwordField.setText("");
+            passwordField2.setText("");
         }
 
     }

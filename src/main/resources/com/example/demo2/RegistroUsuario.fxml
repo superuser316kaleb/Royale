@@ -7,12 +7,13 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-
-<VBox alignment="CENTER" spacing="10.0" xmlns="http://javafx.com/javafx/17.0.2-ea"
-      xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo2.RegistroUsuarioControlador">
+<HBox alignment="CENTER" minWidth="460" prefHeight="427.0" prefWidth="567.0" spacing="0.0"
+      xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo2.RegistroUsuarioControlador">
+    <VBox spacing="10" minWidth="230">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
+
 
     <!-- Título de la aplicación -->
     <Label text="Nuevo en Royale?">
@@ -25,21 +26,60 @@
     <TextField fx:id="usernameField" promptText="Crea Nombre de usuario" />
     <TextField fx:id="nameField" promptText="Nombre(s)" />
     <TextField fx:id="emailField" promptText="Correo Eléctronico" />
+    <TextField fx:id="phoneField" promptText="Télefono" />
+    <TextField fx:id="Domicilio" promptText="Domicilio" />
 
     <!-- Campo de contraseña para la contraseña -->
     <PasswordField fx:id="passwordField" promptText="Crea Contraseña" />
-<PasswordField fx:id="passwordField2" promptText="Confirma Contraseña" />
+    <PasswordField fx:id="passwordField2" promptText="Confirma Contraseña" />
     <!-- Lista desplegable para seleccionar el plan  -->
     <ComboBox fx:id="planComboBox" promptText="Selecciona un plan">
         <items>
             <FXCollections fx:factory="observableArrayList">
-                <String fx:value="Básico"  />
+                <String fx:value="Básico" />
                 <String fx:value="Premium" />
             </FXCollections>
         </items>
     </ComboBox>
-    <Text fx:id="feedbackText"/>
+    <Text fx:id="feedbackText" />
     <!-- Botón registro -->
     <Button maxWidth="Infinity" onAction="#onSignInButtonClick" text="Registrarse" />
-
-</VBox>
+    </VBox>
+    <VBox minWidth="230" spacing="10" alignment="CENTER_LEFT">
+        <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+        </padding>
+        <Label text="Premium" >
+            <font>
+                <Font size="20" />
+            </font>
+        </Label><Label text="169MXN MENSUALES" >
+            <font>
+                <Font size="20" />
+            </font>
+        </Label><Label text="Basic" >
+            <font>
+                <Font size="20" />
+            </font>
+        </Label><Label text="129MXN MENSUALES" >
+            <font>
+                <Font size="20" />
+            </font>
+        </Label>
+        <HBox>
+           <Label text="Agregar método de Pago "/>
+        </HBox>
+        <ComboBox fx:id="methodComboBox" promptText="Selecciona un Método">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="Crédito" />
+                    <String fx:value="Débito" />
+                </FXCollections>
+            </items>
+        </ComboBox>
+<TextField fx:id="cardField" promptText="Número de Tarjeta" />
+        <TextField fx:id="dateField" promptText="Fecha de Vencimiento" />
+        <TextField fx:id="cvvField" promptText="CVV" />
+        <Button maxWidth="Infinity" onAction="#onSignInButtonClick" text="Agregar" />
+    </VBox>
+</HBox>
