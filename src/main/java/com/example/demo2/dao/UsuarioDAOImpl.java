@@ -25,7 +25,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
             ResultSet rs = pstmt.executeQuery();
             if (rs.next()) {
                 Usuario usuario = new Usuario();
-                usuario.setId(rs.getInt("id"));
+                usuario.setId_usuario(rs.getInt("id"));
                 usuario.setNombre(rs.getString("nombre"));
                 usuario.setEmail(rs.getString("email"));
                 // Set other fields...
@@ -46,7 +46,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
              ResultSet rs = pstmt.executeQuery()) {
             while (rs.next()) {
                 Usuario usuario = new Usuario();
-                usuario.setId(rs.getInt("id"));
+                usuario.setId_usuario(rs.getInt("id"));
                 usuario.setNombre(rs.getString("nombre"));
                 usuario.setEmail(rs.getString("email"));
                 // Set other fields...
@@ -79,7 +79,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, usuario.getNombre());
             pstmt.setString(2, usuario.getEmail());
-            pstmt.setInt(3, usuario.getId());
+            pstmt.setInt(3, usuario.getId_usuario());
             // Set other fields...
             pstmt.executeUpdate();
         } catch (SQLException e) {

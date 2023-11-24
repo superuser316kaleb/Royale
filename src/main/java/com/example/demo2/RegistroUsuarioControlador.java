@@ -60,7 +60,7 @@
                 }
             }
         }
-        protected void getUserInfo(){
+        protected Usuario getUserInfo(){
             String username = usernameField.getText();
             String password = passwordField.getText();
             String name = nameField.getText();
@@ -74,7 +74,7 @@
             usuario.setTelefono(Integer.parseInt(cardField.getText()));
             usuario.setDireccion(dateField.getText());
             usuario.setId_subscription(Integer.parseInt(cvvField.getText()));
-
+            return usuario;
         }
         protected void limpiarCampos(){
             passwordField.setText("");
