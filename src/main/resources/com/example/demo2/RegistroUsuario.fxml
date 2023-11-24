@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.collections.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+
+<VBox alignment="CENTER" spacing="10.0" xmlns="http://javafx.com/javafx/17.0.2-ea"
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo2.RegistroUsuarioControlador">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+
+    <!-- Título de la aplicación -->
+    <Label text="Nuevo en Royale?">
+        <font>
+            <Font size="20" />
+        </font>
+    </Label>
+
+    <!-- Campo de texto para el nombre de usuario -->
+    <TextField fx:id="usernameField" promptText="Crea Nombre de usuario" />
+    <TextField fx:id="nameField" promptText="Nombre(s)" />
+    <TextField fx:id="emailField" promptText="Correo Eléctronico" />
+
+    <!-- Campo de contraseña para la contraseña -->
+    <PasswordField fx:id="passwordField" promptText="Crea Contraseña" />
+<PasswordField fx:id="passwordField2" promptText="Confirma Contraseña" />
+    <!-- Lista desplegable para seleccionar el plan  -->
+    <ComboBox fx:id="planComboBox" promptText="Selecciona un plan">
+        <items>
+            <FXCollections fx:factory="observableArrayList">
+                <String fx:value="Básico"  />
+                <String fx:value="Premium" />
+            </FXCollections>
+        </items>
+    </ComboBox>
+    <Text fx:id="feedbackText"/>
+    <!-- Botón registro -->
+    <Button maxWidth="Infinity" onAction="#onSignInButtonClick" text="Registrarse" />
+
+</VBox>
