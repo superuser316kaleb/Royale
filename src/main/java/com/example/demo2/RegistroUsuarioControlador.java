@@ -8,6 +8,7 @@
     import javafx.scene.control.PasswordField;
     import javafx.scene.control.TextField;
     import javafx.scene.text.Text;
+    import javafx.stage.Stage;
 
     import java.net.URL;
     import java.util.ResourceBundle;
@@ -30,7 +31,7 @@
 
         @FXML
         private ComboBox<String> planComboBox,methodComboBox;
-
+        Stage stage;
         @Override
         public void initialize(URL location, ResourceBundle resources) {
 
@@ -80,5 +81,9 @@
             passwordField.setText("");
             passwordField2.setText("");
         }
+            public void setStage(Stage stageA) {
+                 stage = stageA;
+
+            }
 
     }

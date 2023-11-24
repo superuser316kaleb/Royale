@@ -1,16 +1,22 @@
 package com.example.demo2;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
     public class InicioSesionControlador implements Initializable {
-
+    Stage stage;
     @FXML
     private Text feedbackText;
 
@@ -44,10 +50,27 @@ import java.util.ResourceBundle;
     }
 
     @FXML
-    protected void onRegisterLinkClick() {
-        // Lógica para ir a la pantalla de registro
-        feedbackText.setText("Pantalla de registro no implementada.");
+    protected void onRegisterLinkClick() throws IOException {
+
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("RegistroUsuario.fxml"));
+       // Scene scene = new Scene(fxmlLoader.load(), 420, 340);
+
+
+        RegistroUsuarioControlador registroUsuarioControlador=new RegistroUsuarioControlador();
+        fxmlLoader.setController(registroUsuarioControlador);
+        Parent root = fxmlLoader.load();
+        Stage stage = new Stage();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        registroUsuarioControlador.setStage(stage);
+        stage.show();
+
     }
+        public void setStage(Stage stageA) {
+            stage = stageA;
+
+        }
+
 
 
 
