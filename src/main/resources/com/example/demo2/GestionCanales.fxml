@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<VBox spacing="15" alignment="TOP_CENTER" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.demo2.controladores.GestionCanalesControlador">
+    <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+
+    <!-- Título de la sección -->
+    <Label text="Gestión de Canales" style="-fx-font-size: 24px; -fx-font-weight: bold;"/>
+
+    <!-- Sección para añadir un nuevo canal -->
+    <HBox spacing="10">
+        <TextField fx:id="nombreCanalTextField" promptText="Nombre del canal"/>
+        <Button text="Crear Canal" fx:id="crearCanalButton" onAction="#crearCanal"/>
+    </HBox>
+
+    <!-- Lista de canales -->
+    <Label text="Canales Existentes" style="-fx-font-size: 18px;"/>
+    <ListView fx:id="canalesListView" prefHeight="250">
+        <!-- Aquí se mostrarán los canales -->
+    </ListView>
+
+    <!-- Botones de acción para el canal seleccionado -->
+    <HBox spacing="10" alignment="CENTER">
+        <Button text="Ver Detalles" fx:id="verDetallesButton" onAction="#verDetalles"/>
+        <Button text="Editar" fx:id="editarButton" onAction="#editarCanal"/>
+        <Button text="Eliminar" fx:id="eliminarButton" onAction="#eliminarCanal"/>
+    </HBox>
+</VBox>

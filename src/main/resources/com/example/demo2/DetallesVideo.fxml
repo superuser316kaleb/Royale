@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+
+<VBox spacing="20" alignment="TOP_CENTER" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.demo2.controladores.DetallesVideoControlador">
+    <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+
+    <!-- Título de la sección -->
+    <Label text="Detalles del Video" style="-fx-font-size: 24px; -fx-font-weight: bold;"/>
+
+    <!-- Contenedor para la imagen y los detalles -->
+    <HBox spacing="15">
+        <!-- Imagen de portada del video -->
+        <ImageView fx:id="imagenVideo" fitWidth="150" fitHeight="225" preserveRatio="true" />
+
+        <!-- Contenedor para los detalles del video -->
+        <VBox spacing="5">
+            <Label fx:id="tituloLabel" text="Titulo del Video" style="-fx-font-size: 18px;"/>
+            <Label fx:id="descripcionLabel" text="Descripción" wrapText="true"/>
+            <!-- Más detalles como año, duración, categoría, etc. -->
+            <HBox spacing="10">
+                <Label text="Año:"/>
+                <Label fx:id="anioLabel" text="2023"/>
+            </HBox>
+            <HBox spacing="10">
+                <Label text="Duración:"/>
+                <Label fx:id="duracionLabel" text="120 minutos"/>
+            </HBox>
+            <HBox spacing="10">
+                <Label text="Categoría:"/>
+                <Label fx:id="categoriaLabel" text="Acción"/>
+            </HBox>
+        </VBox>
+    </HBox>
+
+    <!-- Botones de acción -->
+    <HBox spacing="10" alignment="CENTER">
+        <Button text="Rentar Video" fx:id="rentarButton" onAction="#rentarVideo"/>
+        <Button text="Agregar a Favoritos" fx:id="favoritosButton" onAction="#agregarAFavoritos"/>
+    </HBox>
+
+    <!-- Sección de comentarios o calificaciones -->
+    <VBox spacing="10">
+        <Label text="Comentarios" style="-fx-font-size: 18px;"/>
+        <ListView fx:id="comentariosListView" prefHeight="100"/>
+    </VBox>
+</VBox>

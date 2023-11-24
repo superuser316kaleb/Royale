@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<VBox spacing="15" alignment="TOP_CENTER" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.demo2.controladores.HistorialComprasRentasControlador">
+    <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+
+    <!-- Título de la sección -->
+    <Label text="Historial de Compras y Rentas" style="-fx-font-size: 24px; -fx-font-weight: bold;"/>
+
+    <!-- Filtros para la búsqueda en el historial -->
+    <HBox spacing="10">
+        <DatePicker fx:id="fechaInicioPicker" promptText="Fecha Inicio"/>
+        <DatePicker fx:id="fechaFinPicker" promptText="Fecha Fin"/>
+        <Button text="Filtrar" fx:id="filtrarButton" onAction="#filtrarHistorial"/>
+    </HBox>
+
+    <!-- Tabla para mostrar el historial -->
+    <TableView fx:id="historialTableView" prefHeight="300">
+        <columns>
+            <TableColumn text="Fecha" fx:id="columnaFecha"/>
+            <TableColumn text="Título" fx:id="columnaTitulo"/>
+            <TableColumn text="Tipo" fx:id="columnaTipo"/>
+            <TableColumn text="Costo" fx:id="columnaCosto"/>
+            <!-- Agrega más columnas según sea necesario -->
+        </columns>
+    </TableView>
+</VBox>

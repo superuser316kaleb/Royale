@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.collections.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox alignment="CENTER" spacing="10.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17.0.2-ea" fx:controller="com.example.demo2.InicioSesionControlador">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+
+    <!-- Título de la aplicación -->
+    <Label text="Bienvenido a Royale">
+        <font>
+            <Font size="20" />
+        </font>
+    </Label>
+
+    <!-- Campo de texto para el nombre de usuario -->
+    <TextField fx:id="usernameField" promptText="Nombre de usuario" />
+
+    <!-- Campo de contraseña para la contraseña -->
+    <PasswordField fx:id="passwordField" promptText="Contraseña" />
+
+    <!-- Botón para iniciar sesión -->
+    <Button maxWidth="Infinity" onAction="#onLoginButtonClick" text="Iniciar Sesión" />
+
+    <!-- Enlace para registrarse si el usuario no tiene cuenta -->
+    <Hyperlink onAction="#onRegisterLinkClick" text="¿No tienes cuenta? Regístrate aquí" />
+
+    <!-- Lista desplegable para seleccionar el plan de usuario -->
+    <ComboBox fx:id="planComboBox" promptText="Selecciona un plan">
+        <items>
+            <FXCollections fx:factory="observableArrayList">
+                <String fx:value="Básico" />
+                <String fx:value="Estándar" />
+                <String fx:value="Premium" />
+            </FXCollections>
+        </items>
+    </ComboBox>
+
+    <!-- Botón para seleccionar el plan y continuar -->
+    <Button maxWidth="Infinity" onAction="#onSelectPlanClick" text="Seleccionar Plan" />
+</VBox>

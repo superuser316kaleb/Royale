@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<VBox spacing="15" alignment="TOP_CENTER" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.demo2.controladores.ExploracionVideosCont">
+    <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+
+    <!-- Título de la sección -->
+    <Label text="Exploración de Videos" style="-fx-font-size: 24px; -fx-font-weight: bold;"/>
+
+    <!-- Campo de búsqueda -->
+    <HBox spacing="10">
+        <TextField fx:id="busquedaTextField" promptText="Buscar videos..."/>
+        <Button text="Buscar" fx:id="buscarButton" onAction="#buscarVideos"/>
+    </HBox>
+
+    <!-- Botones de filtro por categoría -->
+    <HBox spacing="10">
+        <Button text="Todos" onAction="#filtrarTodos"/>
+        <Button text="Acción" onAction="#filtrarAccion"/>
+        <Button text="Comedia" onAction="#filtrarComedia"/>
+        <!-- Más botones de categoría según sea necesario -->
+    </HBox>
+
+    <!-- Lista de videos -->
+    <ListView fx:id="videosListView" prefHeight="300">
+        <!-- Aquí se mostrarán los videos -->
+    </ListView>
+</VBox>

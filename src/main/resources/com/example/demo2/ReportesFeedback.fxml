@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<VBox spacing="20" alignment="TOP_CENTER" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.demo2.controladores.ReportesFeedbackControlador">
+    <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+
+    <!-- Título de la sección -->
+    <Label text="Reportes y Feedback" style="-fx-font-size: 24px; -fx-font-weight: bold;"/>
+
+    <!-- Campo para el asunto del feedback -->
+    <TextField fx:id="asuntoTextField" promptText="Asunto del Feedback"/>
+
+    <!-- Área de texto para el cuerpo del feedback -->
+    <TextArea fx:id="feedbackTextArea" promptText="Escribe tu feedback o reporte aquí..." prefHeight="150"/>
+
+    <!-- Botón para enviar el feedback -->
+    <Button text="Enviar Feedback" fx:id="enviarFeedbackButton" onAction="#enviarFeedback" style="-fx-font-size: 16px;"/>
+
+    <!-- Sección para mostrar el historial de feedback enviado -->
+    <Label text="Historial de Feedback Enviado" style="-fx-font-size: 18px;"/>
+    <ListView fx:id="historialFeedbackListView" prefHeight="200"/>
+</VBox>

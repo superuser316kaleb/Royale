@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<VBox spacing="15" alignment="TOP_CENTER" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.demo2.controladores.DetallesUsuarioControlador">
+    <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+
+    <!-- Título de la sección -->
+    <Label text="Detalles del Usuario" style="-fx-font-size: 24px; -fx-font-weight: bold;"/>
+
+    <!-- Campos para los detalles del usuario -->
+    <TextField fx:id="nombreTextField" promptText="Nombre"/>
+    <TextField fx:id="apellidoTextField" promptText="Apellido"/>
+    <TextField fx:id="emailTextField" promptText="Email"/>
+    <TextField fx:id="usuarioTextField" promptText="Nombre de Usuario"/>
+
+    <!-- Botones para acciones -->
+    <HBox spacing="10" alignment="CENTER">
+        <Button text="Guardar Cambios" onAction="#guardarCambios"/>
+        <Button text="Cambiar Contraseña" onAction="#cambiarContraseña"/>
+    </HBox>
+</VBox>
