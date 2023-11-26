@@ -1,19 +1,16 @@
 package com.example.demo2.dao;
 
+import com.example.demo2.MySQLConnection;
 import com.example.demo2.modelo.Canal;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
-public class CanalDAOImpl {
 
-    private static final String URL = "jdbc:mysql://tu_host:tu_puerto/tu_base_de_datos";
-    private static final String USER = "tu_usuario";
-    private static final String PASSWORD = "tu_contraseña";
+public class CanalDAOImpl extends MySQLConnection implements Dao<Canal>{
 
-    private Connection getConnection() throws SQLException {
-        return DriverManager.getConnection(URL, USER, PASSWORD);
-    }
+    Connection conn = getConnection();
 
     public Canal obtenerPorId(int id) {
         String sql = "SELECT * FROM canales WHERE id = ?";
@@ -87,5 +84,30 @@ public class CanalDAOImpl {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public Optional<Canal> findById(int id) {
+        return Optional.empty();
+    }
+
+    @Override
+    public List<Canal> findAll() {
+        return null;
+    }
+
+    @Override
+    public boolean save(Canal record) {
+        return false;
+    }
+
+    @Override
+    public boolean update(Canal record) {
+        return false;
+    }
+
+    @Override
+    public boolean delete(int id) {
+        return false;
     }
 }

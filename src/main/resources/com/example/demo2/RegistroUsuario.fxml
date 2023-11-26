@@ -25,9 +25,10 @@
     <!-- Campo de texto para el nombre de usuario -->
     <TextField fx:id="usernameField" promptText="Crea Nombre de usuario" />
     <TextField fx:id="nameField" promptText="Nombre(s)" />
+    <TextField fx:id="lastnameField" promptText="apellido(s)" />
     <TextField fx:id="emailField" promptText="Correo Eléctronico" />
     <TextField fx:id="phoneField" promptText="Télefono" />
-    <TextField fx:id="Domicilio" promptText="Domicilio" />
+    <TextField fx:id="addressField" promptText="Domicilio" />
 
     <!-- Campo de contraseña para la contraseña -->
     <PasswordField fx:id="passwordField" promptText="Crea Contraseña" />
@@ -36,6 +37,7 @@
     <ComboBox fx:id="planComboBox" promptText="Selecciona un plan">
         <items>
             <FXCollections fx:factory="observableArrayList">
+                <String fx:value="Visitante" />
                 <String fx:value="Básico" />
                 <String fx:value="Premium" />
             </FXCollections>

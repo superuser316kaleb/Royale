@@ -24,7 +24,7 @@
 
         public TextField cardField;
         public TextField dateField;
-        public TextField cvvField;
+        public TextField cvvField,addressField,phoneField,lastnameField;
         @FXML
         private Text feedbackText;
 
@@ -63,7 +63,7 @@
                     feedbackText.setText("Registro exitoso para el plan: " + selectedPlan);
                     // Aquí iría la lógica para verificar las credenciales del usuario
                     feedbackText.setText("Creación de usuario "+selectedPlan+" exitosa.");
-                    cargarDashboard();
+                    //cargarDashboard();
 
                 } else {
                     feedbackText.setText("Las contraseñas no coinciden.");
@@ -72,20 +72,34 @@
             }
         }
         protected Usuario getUserInfo(){
-            String username = usernameField.getText();
-            String password = passwordField.getText();
-            String name = nameField.getText();
+            String usuario = usernameField.getText();
+            String contrasena = passwordField.getText();
+            String nombre = nameField.getText();
+            String apellido = lastnameField.getText();
             String email = emailField.getText();
             String selectedPlan = planComboBox.getValue();
-            Usuario usuario = new Usuario();
-            usuario.setNombre(name);
-            usuario.setEmail(email);
-            usuario.setPassword(password);
-            usuario.setMetodoPago(Integer.parseInt(methodComboBox.getValue()));
-            usuario.setTelefono(Integer.parseInt(cardField.getText()));
-            usuario.setDireccion(dateField.getText());
-            usuario.setId_subscription(Integer.parseInt(cvvField.getText()));
-            return usuario;
+            String domicilio = addressField.getText();
+            String telefono = phoneField.getText();
+            int id_suscripcion =1;
+            int tipo_usuario=1;
+            if (selectedPlan.equals("Premium")){
+                id_suscripcion=3;
+            }else if (selectedPlan.equals("Básico")){
+                id_suscripcion=2;
+            }
+            Usuario usuario1 = new Usuario();
+            usuario1.setUsuario(usuario);
+            usuario1.setContrasena(contrasena);
+            usuario1.setNombre(nombre);
+            usuario1.setApellido(apellido);
+            usuario1.setEmail(email);
+            usuario1.setTipo_usuario(tipo_usuario);
+            usuario1.setDomicilio(domicilio);
+            usuario1.setTelefono(telefono);
+            usuario1.setId_tipo_suscripcion(id_suscripcion);
+            usuario1.setTipo_usuario(tipo_usuario);
+
+            return usuario1;
         }
         protected void limpiarCampos(){
             passwordField.setText("");

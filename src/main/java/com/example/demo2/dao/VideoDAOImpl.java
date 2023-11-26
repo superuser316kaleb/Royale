@@ -1,21 +1,15 @@
 package com.example.demo2.dao;
 
+import com.example.demo2.MySQLConnection;
 import com.example.demo2.modelo.Video;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
-public class VideoDAOImpl implements VideoDAO {
+public class VideoDAOImpl extends MySQLConnection implements Dao<Video>{
 
-    private static final String URL = "jdbc:mysql://tu_host:tu_puerto/tu_base_de_datos";
-    private static final String USER = "tu_usuario";
-    private static final String PASSWORD = "tu_contraseña";
-
-    private Connection getConnection() throws SQLException {
-        return DriverManager.getConnection(URL, USER, PASSWORD);
-    }
-
-    @Override
+    Connection conn = getConnection();
     public Video obtenerPorId(int id) {
         String sql = "SELECT * FROM videos WHERE id = ?";
         try (Connection conn = getConnection();
@@ -36,7 +30,6 @@ public class VideoDAOImpl implements VideoDAO {
         return null;
     }
 
-    @Override
     public List<Video> obtenerTodos() {
         List<Video> videos = new ArrayList<>();
         String sql = "SELECT * FROM videos";
@@ -57,7 +50,7 @@ public class VideoDAOImpl implements VideoDAO {
         return videos;
     }
 
-    @Override
+
     public void guardar(Video video) {
         String sql = "INSERT INTO videos (titulo, descripcion) VALUES (?, ?)";
         try (Connection conn = getConnection();
@@ -71,7 +64,7 @@ public class VideoDAOImpl implements VideoDAO {
         }
     }
 
-    @Override
+
     public void actualizar(Video video) {
         String sql = "UPDATE videos SET titulo = ?, descripcion = ? WHERE id = ?";
         try (Connection conn = getConnection();
@@ -86,7 +79,7 @@ public class VideoDAOImpl implements VideoDAO {
         }
     }
 
-    @Override
+
     public void eliminar(int id) {
         String sql = "DELETE FROM videos WHERE id = ?";
         try (Connection conn = getConnection();
@@ -96,5 +89,30 @@ public class VideoDAOImpl implements VideoDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public Optional<Video> findById(int id) {
+        return Optional.empty();
+    }
+
+    @Override
+    public List<Video> findAll() {
+        return null;
+    }
+
+    @Override
+    public boolean save(Video record) {
+        return false;
+    }
+
+    @Override
+    public boolean update(Video record) {
+        return false;
+    }
+
+    @Override
+    public boolean delete(int id) {
+        return false;
     }
 }

@@ -1,22 +1,19 @@
 package com.example.demo2.dao;
 
+import com.example.demo2.MySQLConnection;
 import com.example.demo2.modelo.Usuario;
-
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
-public class UsuarioDAOImpl implements UsuarioDAO {
+import static com.example.demo2.MySQLConnection.getConnection;
 
-    private static final String URL = "jdbc:mysql://localhost:3306/tu_base_de_datos";
-    private static final String USERNAME = "tu_usuario";
-    private static final String PASSWORD = "tu_contraseña";
+public class UsuarioDAOImpl extends MySQLConnection implements Dao<Usuario> {
 
-    private Connection getConnection() throws SQLException {
-        return DriverManager.getConnection(URL, USERNAME, PASSWORD);
-    }
+Connection conn = getConnection();
 
-    @Override
+
     public Usuario obtenerPorId(int id) {
         String sql = "SELECT * FROM usuarios WHERE id = ?";
         try (Connection conn = getConnection();
@@ -37,7 +34,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
         return null;
     }
 
-    @Override
+
     public List<Usuario> obtenerTodos() {
         List<Usuario> usuarios = new ArrayList<>();
         String sql = "SELECT * FROM usuarios";
@@ -58,22 +55,42 @@ public class UsuarioDAOImpl implements UsuarioDAO {
         return usuarios;
     }
 
+
+
+    public void actualizar(Usuario usuario) {
+
+    }
+
+
+
     @Override
-    public void guardar(Usuario usuario) {
-        String sql = "INSERT INTO usuarios (nombre, email) VALUES (?, ?)";
-        try (Connection conn = getConnection();
-             PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            pstmt.setString(1, usuario.getNombre());
-            pstmt.setString(2, usuario.getEmail());
-            // Set other fields...
-            pstmt.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+    public Optional<Usuario> findById(int id) {
+        return Optional.empty();
     }
 
     @Override
-    public void actualizar(Usuario usuario) {
+    public List<Usuario> findAll() {
+        return null;
+    }
+
+    @Override
+    public boolean save(Usuario usuario) {
+        String query = "INSERT INTO usuarios (nombre, email) VALUES (?, ?)";
+        try (
+             PreparedStatement pstmt = conn.prepareStatement(query)) {
+            pstmt.setString(1, usuario.getNombre());
+            pstmt.setString(2, usuario.getEmail());
+            pstmt.setString(3, usuario.getContrasena());
+            pstmt.setString(4, usuario.getUsuario());
+
+            pstmt.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } return false;
+    }
+
+    @Override
+    public boolean update(Usuario usuario) {
         String sql = "UPDATE usuarios SET nombre = ?, email = ? WHERE id = ?";
         try (Connection conn = getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
@@ -85,17 +102,13 @@ public class UsuarioDAOImpl implements UsuarioDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        return false;
     }
 
     @Override
-    public void eliminar(int id) {
-        String sql = "DELETE FROM usuarios WHERE id = ?";
-        try (Connection conn = getConnection();
-             PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            pstmt.setInt(1, id);
-            pstmt.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+    public boolean delete(int id) {
+        return false;
     }
+
+
 }
