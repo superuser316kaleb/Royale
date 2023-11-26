@@ -75,14 +75,18 @@ Connection conn = getConnection();
 
     @Override
     public boolean save(Usuario usuario) {
-        String query = "INSERT INTO usuarios (nombre, email) VALUES (?, ?)";
+        String query = "insert into usuarios (nombre, apellido, domicilio, telefono, id_tipo_suscripcion, contrasena, email, usuario)" +
+                "values (?, ?, ?, ?, ?, ?, ?, ?);";
         try (
              PreparedStatement pstmt = conn.prepareStatement(query)) {
             pstmt.setString(1, usuario.getNombre());
-            pstmt.setString(2, usuario.getEmail());
-            pstmt.setString(3, usuario.getContrasena());
-            pstmt.setString(4, usuario.getUsuario());
-
+            pstmt.setString(2, usuario.getApellido());
+            pstmt.setString(3, usuario.getDomicilio());
+            pstmt.setString(4, usuario.getTelefono());
+            pstmt.setInt(5, usuario.getId_tipo_suscripcion());
+            pstmt.setString(6, usuario.getContrasena());
+            pstmt.setString(7, usuario.getEmail());
+            pstmt.setString(8, usuario.getUsuario());
             pstmt.execute();
         } catch (SQLException e) {
             e.printStackTrace();

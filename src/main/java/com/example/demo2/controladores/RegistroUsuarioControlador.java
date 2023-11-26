@@ -1,5 +1,7 @@
     package com.example.demo2.controladores;
 
+    import com.example.demo2.MySQLConnection;
+    import com.example.demo2.dao.UsuarioDAOImpl;
     import com.example.demo2.modelo.Usuario;
     import javafx.event.ActionEvent;
     import javafx.fxml.FXML;
@@ -16,6 +18,7 @@
 
     import java.io.IOException;
     import java.net.URL;
+    import java.sql.Connection;
     import java.util.ResourceBundle;
 
     public class RegistroUsuarioControlador implements Initializable {
@@ -40,6 +43,10 @@
         @FXML
                 private HBox secondMain;
         Stage stage;
+
+        UsuarioDAOImpl usuarioDAO = new UsuarioDAOImpl();
+
+        Connection conn = MySQLConnection.getConnection();
         @Override
         public void initialize(URL location, ResourceBundle resources) {
 
@@ -64,7 +71,7 @@
                     // Aquí iría la lógica para verificar las credenciales del usuario
                     feedbackText.setText("Creación de usuario "+selectedPlan+" exitosa.");
                     //cargarDashboard();
-
+                    usuarioDAO.save(getUserInfo());
                 } else {
                     feedbackText.setText("Las contraseñas no coinciden.");
                     limpiarCampos();
