@@ -4,7 +4,8 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox alignment="TOP_CENTER" spacing="20" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17.0.2-ea" fx:controller="com.example.demo2.controladores.DashboardControlador">
+<VBox alignment="TOP_CENTER" spacing="20" xmlns:fx="http://javafx.com/fxml/1"
+      xmlns="http://javafx.com/javafx/17.0.2-ea">
     <padding><Insets bottom="20" left="20" right="20" top="20" /></padding>
 
     <!-- Título y Barra de Navegación -->

@@ -1,5 +1,7 @@
 package com.example.demo2;
 
+import com.example.demo2.controladores.DashboardControlador;
+import com.example.demo2.controladores.RegistroUsuarioControlador;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -35,7 +37,7 @@ import java.util.ResourceBundle;
         }
 
     @FXML
-    protected void onLoginButtonClick() {
+    protected void onLoginButtonClick() throws IOException {
         String username = usernameField.getText();
         String password = passwordField.getText();
 
@@ -45,25 +47,49 @@ import java.util.ResourceBundle;
             feedbackText.setText("Por favor, ingresa tu nombre de usuario y contraseña.");
         } else {
             // Aquí iría la lógica para verificar las credenciales del usuario
+            feedbackText.setText("Inicio de sesión exitoso.");
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Dashboard.fxml"));
 
+
+            //Cargar el controlador
+            DashboardControlador dashboardControlador = new DashboardControlador();
+            //Colocar el controlador al FXML
+            fxmlLoader.setController(dashboardControlador);
+
+            Parent root = fxmlLoader.load();
+
+            Stage stage = new Stage();
+            Scene scene = new Scene(root);
+
+            stage.setScene(scene);
+            stage.setMaximized(true);
+            dashboardControlador.setStage(stage);
+            stage.show();
+            this.stage.close();
         }
     }
 
     @FXML
     protected void onRegisterLinkClick() throws IOException {
 
+
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("RegistroUsuario.fxml"));
-       // Scene scene = new Scene(fxmlLoader.load(), 420, 340);
 
 
-        RegistroUsuarioControlador registroUsuarioControlador=new RegistroUsuarioControlador();
+        //Cargar el controlador
+        RegistroUsuarioControlador registroUsuarioControlador = new RegistroUsuarioControlador();
+        //Colocar el controlador al FXML
         fxmlLoader.setController(registroUsuarioControlador);
+
         Parent root = fxmlLoader.load();
+
         Stage stage = new Stage();
         Scene scene = new Scene(root);
+
         stage.setScene(scene);
         registroUsuarioControlador.setStage(stage);
         stage.show();
+        this.stage.close();
 
     }
         public void setStage(Stage stageA) {
