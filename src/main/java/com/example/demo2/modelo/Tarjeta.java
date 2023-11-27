@@ -16,4 +16,43 @@ public class Tarjeta {
 
     }
 
+    public int getId_usuario() {
+        return id_usuario;
+    }
+
+    public void setId_usuario(int id_usuario) {
+        this.id_usuario = id_usuario;
+    }
+
+    public int getId_metodo() {
+        return id_metodo;
+    }
+
+    public void setId_metodo(int id_metodo) {
+        this.id_metodo = id_metodo;
+    }
+
+    public int getCvv() {
+        return cvv;
+    }
+
+    public void setCvv(int cvv) {
+        this.cvv = cvv;
+    }
+
+    public int getTerminacion() {
+        return terminacion;
+    }
+
+    public void setTerminacion(int terminacion) {
+        this.terminacion = terminacion;
+    }
+
+    public String getFecha_caducidad() {
+        return fecha_caducidad;
+    }
+
+    public void setFecha_caducidad(String fecha_caducidad) {
+        this.fecha_caducidad = fecha_caducidad;
+    }
 }

@@ -47,6 +47,7 @@ import java.util.ResourceBundle;
             feedbackText.setText("Por favor, ingresa tu nombre de usuario y contraseña.");
         } else {
             // Aquí iría la lógica para verificar las credenciales del usuario
+
             feedbackText.setText("Inicio de sesión exitoso.");
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Dashboard.fxml"));
 
