@@ -2,6 +2,7 @@
 
     import com.example.demo2.MySQLConnection;
     import com.example.demo2.dao.UsuarioDAOImpl;
+    import com.example.demo2.modelo.Tarjeta;
     import com.example.demo2.modelo.Usuario;
     import javafx.event.ActionEvent;
     import javafx.fxml.FXML;
@@ -13,6 +14,7 @@
     import javafx.scene.control.PasswordField;
     import javafx.scene.control.TextField;
     import javafx.scene.layout.HBox;
+    import javafx.scene.layout.VBox;
     import javafx.scene.text.Text;
     import javafx.stage.Stage;
 
@@ -42,6 +44,8 @@
 
         @FXML
                 private HBox secondMain;
+        @FXML
+        VBox vboxsubscripciones;
         Stage stage;
 
         UsuarioDAOImpl usuarioDAO = new UsuarioDAOImpl();
@@ -49,32 +53,66 @@
         Connection conn = MySQLConnection.getConnection();
         @Override
         public void initialize(URL location, ResourceBundle resources) {
+            //ocultamos la parte del pago
+            if (planComboBox.getValue()==null) vboxsubscripciones.setVisible(false);
 
         }
 
+
+        @FXML
+        protected void selectionClick(ActionEvent actionEvent) {
+            String selectedPlan = planComboBox.getValue();
+            if (selectedPlan.equals("Premium")){
+                vboxsubscripciones.setVisible(true);
+            }else if (selectedPlan.equals("Básico")){
+                vboxsubscripciones.setVisible(true);
+            }else{
+                vboxsubscripciones.setVisible(false);
+            }
+        }
         @FXML
         public void onSignInButtonClick(ActionEvent actionEvent) throws IOException {
-            String username = usernameField.getText();
-            String password = passwordField.getText();
-            String name = nameField.getText();
+            String usuario = usernameField.getText();
+            String contrasena = passwordField.getText();
+            String nombre = nameField.getText();
+            String apellido = lastnameField.getText();
             String email = emailField.getText();
             String selectedPlan = planComboBox.getValue();
+            String domicilio = addressField.getText();
+            String telefono = phoneField.getText();
             String password2 = passwordField2.getText();
 
+            String selectedMethod = methodComboBox.getValue();
+            String card = cardField.getText();
+            String date = dateField.getText();
+            String cvv = cvvField.getText();
+
             // Lógica de inicio de sesión
-            if (username.isEmpty() || password.isEmpty() || name.isEmpty() || email.isEmpty()
-                    || selectedPlan.isEmpty()|| password2.isEmpty()) {
+            if (usuario.isEmpty() || contrasena.isEmpty() || nombre.isEmpty() || email.isEmpty()
+                    || selectedPlan.isEmpty()|| password2.isEmpty()|| domicilio.isEmpty()|| telefono.isEmpty()|| apellido.isEmpty()) {
                     feedbackText.setText("Por favor, llena todos los campos.");
             } else {
-                if (password.equals(password2)) {
-                    feedbackText.setText("Registro exitoso para el plan: " + selectedPlan);
-                    // Aquí iría la lógica para verificar las credenciales del usuario
+                if (contrasena.equals(password2)||selectedPlan.equals("Visitante")) {
+                    feedbackText.setText("Registro exitoso para " + selectedPlan);
                     feedbackText.setText("Creación de usuario "+selectedPlan+" exitosa.");
-                    //cargarDashboard();
                     usuarioDAO.save(getUserInfo());
                 } else {
                     feedbackText.setText("Las contraseñas no coinciden.");
                     limpiarCampos();
+                } if (selectedPlan.equals("Premium")||selectedPlan.equals("Básico")||contrasena.equals(password2)) {
+                    if (card.isEmpty() || date.isEmpty() || cvv.isEmpty()|| methodComboBox.getValue()==null) {
+                        feedbackText.setText("Por favor, llena todos los campos.");
+                        limpiarCampos();
+                    } else {
+                        feedbackText.setText("Registro exitoso para plan " + selectedPlan);
+                        feedbackText.setText("Creación de usuario "+selectedPlan+" exitosa.");
+                        usuarioDAO.save(getUserInfo());
+                        if (methodComboBox.getValue().equals("Crédito")) {
+                            usuarioDAO.saveTarjeta(getTarjetaInfo(1));
+                        } else if (methodComboBox.getValue().equals("Débito")) {
+                            usuarioDAO.saveTarjeta(getTarjetaInfo(2));
+                        }
+                    }
                 }
             }
         }
@@ -108,6 +146,18 @@
 
             return usuario1;
         }
+        protected Tarjeta getTarjetaInfo(int metodo){
+            String card = cardField.getText();
+            String date = dateField.getText();
+            int cvv = Integer.parseInt(cvvField.getText());
+            Tarjeta tarjeta = new Tarjeta();
+            tarjeta.setId_usuario(usuarioDAO.getNextSequence());
+            tarjeta.setId_metodo(metodo);
+            tarjeta.setTerminacion(Integer.parseInt(obtenerTerminacion(card)));
+            tarjeta.setCvv(cvv);
+            tarjeta.setFecha_caducidad(date);
+            return tarjeta;
+        }
         protected void limpiarCampos(){
             passwordField.setText("");
             passwordField2.setText("");
@@ -116,6 +166,7 @@
                  stage = stageA;
 
             }
+
 
         @FXML
         protected void cargarDashboard() throws IOException {
@@ -140,6 +191,15 @@
             stage.show();
             this.stage.close();
 
+        }
+
+        private static String obtenerTerminacion(String tarjeta) {
+            if (tarjeta.length() >= 4) {
+                // Obtener los últimos 4 dígitos
+                return tarjeta.substring(tarjeta.length() - 4);
+            } else {
+                return "Número no válido";
+            }
         }
 
     }

@@ -34,7 +34,7 @@
     <PasswordField fx:id="passwordField" promptText="Crea Contraseña" />
     <PasswordField fx:id="passwordField2" promptText="Confirma Contraseña" />
     <!-- Lista desplegable para seleccionar el plan  -->
-    <ComboBox fx:id="planComboBox" promptText="Selecciona un plan">
+    <ComboBox fx:id="planComboBox" promptText="Selecciona un plan" onAction="#selectionClick">
         <items>
             <FXCollections fx:factory="observableArrayList">
                 <String fx:value="Visitante" />
@@ -47,7 +47,7 @@
     <!-- Botón registro -->
     <Button maxWidth="Infinity" onAction="#onSignInButtonClick" text="Registrarse" />
     </VBox>
-    <VBox minWidth="230" spacing="10" alignment="CENTER_LEFT">
+    <VBox fx:id="vboxsubscripciones" minWidth="230" spacing="10" alignment="CENTER_LEFT">
         <padding>
             <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
         </padding>
@@ -79,9 +79,9 @@
                 </FXCollections>
             </items>
         </ComboBox>
-<TextField fx:id="cardField" promptText="Número de Tarjeta" />
-        <TextField fx:id="dateField" promptText="Fecha de Vencimiento" />
+        <Label text="Datos de la Tarjeta" />
+<TextField fx:id="cardField" promptText="xxxx-xxxx-xxxx-xxxx" />
+        <TextField fx:id="dateField" promptText="Caducidad MM/AA" />
         <TextField fx:id="cvvField" promptText="CVV" />
-        <Button maxWidth="Infinity" onAction="#onSignInButtonClick" text="Agregar" />
     </VBox>
 </HBox>

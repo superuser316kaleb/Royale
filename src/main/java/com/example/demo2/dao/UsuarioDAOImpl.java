@@ -1,6 +1,7 @@
 package com.example.demo2.dao;
 
 import com.example.demo2.MySQLConnection;
+import com.example.demo2.modelo.Tarjeta;
 import com.example.demo2.modelo.Usuario;
 import java.sql.*;
 import java.util.ArrayList;
@@ -92,6 +93,35 @@ Connection conn = getConnection();
             e.printStackTrace();
         } return false;
     }
+    public void saveTarjeta(Tarjeta tarjetaInfo) {
+        String query = "insert into usuario_metodo (id_usuario, id_metodo, terminacion, cvv, fecha_caducidad)" +
+                "values (?, ?, ?, ?, ?);";
+        try (PreparedStatement pstmt = conn.prepareStatement(query)) {
+            pstmt.setInt(1, tarjetaInfo.getId_usuario());
+            pstmt.setInt(2, tarjetaInfo.getId_metodo());
+            pstmt.setInt(3, tarjetaInfo.getTerminacion());
+            pstmt.setInt(4, tarjetaInfo.getCvv());
+            pstmt.setString(5, tarjetaInfo.getFecha_caducidad());
+            pstmt.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public int getNextSequence(){
+        String query= "select max(last_insert_id(id_usuario))+1 from usuarios;";
+        int next=0;
+        try {
+            Statement statement = conn.createStatement();
+            ResultSet rs = statement.executeQuery(query);
+            if (rs.next()) {
+                next = rs.getInt(1);
+            }
+        }   catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return next;
+    }
 
     @Override
     public boolean update(Usuario usuario) {
@@ -113,6 +143,7 @@ Connection conn = getConnection();
     public boolean delete(int id) {
         return false;
     }
+
 
 
 }
