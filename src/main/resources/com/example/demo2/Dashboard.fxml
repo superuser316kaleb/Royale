@@ -10,7 +10,7 @@
 
     <!-- Título y Barra de Navegación -->
     <HBox alignment="CENTER" spacing="10">
-        <Label style="-fx-font-size: 28px; -fx-font-weight: bold;" text="Royale" />
+        <Label style="-fx-font-size: 28px; -fx-font-weight: bold;" text="Royales" />
         <Button text="Inicio" />
         <Button text="Categorías" />
         <Button text="Mi Lista" />
