@@ -1,5 +1,6 @@
 package com.example.demo2.controladores;
 
+import com.example.demo2.HelloApplication;
 import com.example.demo2.controladores.DashboardControlador;
 import com.example.demo2.controladores.RegistroUsuarioControlador;
 import javafx.fxml.FXML;
@@ -49,7 +50,7 @@ import java.util.ResourceBundle;
             // Aquí iría la lógica para verificar las credenciales del usuario
 
             feedbackText.setText("Inicio de sesión exitoso.");
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Dashboard.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Dashboard.fxml"));
 
 
             //Cargar el controlador
@@ -74,7 +75,7 @@ import java.util.ResourceBundle;
     protected void onRegisterLinkClick() throws IOException {
 
 
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("RegistroUsuario.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("RegistroUsuario.fxml"));
 
 
         //Cargar el controlador
