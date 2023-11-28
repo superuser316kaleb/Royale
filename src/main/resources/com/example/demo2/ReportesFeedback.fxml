@@ -3,14 +3,14 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.geometry.*?>
 
-<VBox spacing="20" alignment="TOP_CENTER" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.demo2.controladores.ReportesFeedbackControlador">
+<VBox spacing="20" alignment="TOP_CENTER" stylesheets="@css/styles.css" styleClass="fondoGradiente" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.demo2.controladores.ReportesFeedbackControlador">
     <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
 
     <!-- Título de la sección -->
     <Label text="Reportes y Feedback" style="-fx-font-size: 24px; -fx-font-weight: bold;"/>
 
     <!-- Campo para el asunto del feedback -->
-    <TextField fx:id="asuntoTextField" promptText="Asunto del Feedback"/>
+    <TextField fx:id="asuntoTextField" promptText="Asunto del Feedback" style="-fx-background-radius: 50; -fx-border-radius: 50;"/>
 
     <!-- Área de texto para el cuerpo del feedback -->
     <TextArea fx:id="feedbackTextArea" promptText="Escribe tu feedback o reporte aquí..." prefHeight="150"/>

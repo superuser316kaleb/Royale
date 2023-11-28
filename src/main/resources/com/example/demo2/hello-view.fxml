@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox alignment="CENTER" spacing="10.0" xmlns="http://javafx.com/javafx/17.0.2-ea"
+<VBox alignment="CENTER" spacing="10.0" stylesheets="@css/styles.css" styleClass="fondoGradiente" xmlns="http://javafx.com/javafx/17.0.2-ea"
       xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo2.controladores.InicioSesionControlador">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
@@ -19,10 +19,10 @@
     </Label>
 
     <!-- Campo de texto para el nombre de usuario -->
-    <TextField fx:id="usernameField" promptText="Nombre de usuario" />
+    <TextField fx:id="usernameField" promptText="Nombre de usuario" style="-fx-background-radius: 50; -fx-border-radius: 50;" />
 
     <!-- Campo de contraseña para la contraseña -->
-    <PasswordField fx:id="passwordField" promptText="Contraseña" />
+    <PasswordField fx:id="passwordField" promptText="Contraseña" style="-fx-background-radius: 50; -fx-border-radius: 50;" />
 
     <!-- Botón para iniciar sesión -->
     <Button maxWidth="Infinity" onAction="#onLoginButtonClick" text="Iniciar Sesión" />

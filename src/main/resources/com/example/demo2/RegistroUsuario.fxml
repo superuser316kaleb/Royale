@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<HBox alignment="CENTER" minWidth="460" prefHeight="427.0" prefWidth="567.0" spacing="0.0"
+<HBox alignment="CENTER" minWidth="460" prefHeight="427.0" prefWidth="567.0" spacing="0.0" stylesheets="@css/styles.css" styleClass="root"
       xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:id="secondMain">
     <VBox spacing="10" minWidth="230">
     <padding>

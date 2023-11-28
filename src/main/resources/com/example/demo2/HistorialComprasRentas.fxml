@@ -3,7 +3,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.geometry.*?>
 
-<VBox spacing="15" alignment="TOP_CENTER" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.demo2.controladores.HistorialComprasRentasControlador">
+<VBox spacing="15" alignment="TOP_CENTER" stylesheets="@css/styles.css" styleClass="fondoGradiente" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.demo2.controladores.HistorialComprasRentasControlador">
     <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
 
     <!-- Título de la sección -->
