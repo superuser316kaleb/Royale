@@ -1,11 +1,13 @@
 package com.example.demo2.controladores;
 
 import com.example.demo2.HelloApplication;
+import com.example.demo2.dao.UsuarioDAOImpl;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -39,33 +41,34 @@ import java.util.ResourceBundle;
     protected void onLoginButtonClick() throws IOException {
         String username = usernameField.getText();
         String password = passwordField.getText();
-
+        UsuarioDAOImpl usuDao = new UsuarioDAOImpl();
 
         // Lógica de inicio de sesión
         if (username.isEmpty() || password.isEmpty()) {
             feedbackText.setText("Por favor, ingresa tu nombre de usuario y contraseña.");
         } else {
             // Aquí iría la lógica para verificar las credenciales del usuario
-
-            feedbackText.setText("Inicio de sesión exitoso.");
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Dashboard.fxml"));
-
-
-            //Cargar el controlador
-            DashboardControlador dashboardControlador = new DashboardControlador();
-            //Colocar el controlador al FXML
-            fxmlLoader.setController(dashboardControlador);
-
-            Parent root = fxmlLoader.load();
-
-            Stage stage = new Stage();
-            Scene scene = new Scene(root);
-
-            stage.setScene(scene);
-            stage.setMaximized(true);
-            dashboardControlador.setStage(stage);
-            stage.show();
-            this.stage.close();
+            if(usuDao.InicioSesion(username,password).isEmpty()){
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Report");
+                alert.setContentText("Usuario y/o contraseña incorrectos");
+                alert.show();
+            }else {
+                feedbackText.setText("Inicio de sesión exitoso.");
+                FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Dashboard.fxml"));
+                //Cargar el controlador
+                DashboardControlador dashboardControlador = new DashboardControlador();
+                //Colocar el controlador al FXML
+                fxmlLoader.setController(dashboardControlador);
+                Parent root = fxmlLoader.load();
+                Stage stage = new Stage();
+                Scene scene = new Scene(root);
+                stage.setScene(scene);
+                stage.setMaximized(true);
+                dashboardControlador.setStage(stage);
+                stage.show();
+                this.stage.close();
+            }
         }
     }
 
