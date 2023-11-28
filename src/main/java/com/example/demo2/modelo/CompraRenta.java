@@ -13,8 +13,8 @@ public class CompraRenta {
 
 
     public CompraRenta(String fecha, String titulo, String tipo, double costo) {
-        this.id_usuario = idUsuario;
-        this.id_video = idVideo;
+        //this.id_usuario = idUsuario;
+        //this.id_video = idVideo;
         this.fecha = fecha;
         this.titulo = titulo;
         this.tipo = tipo;
