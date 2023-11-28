@@ -3,7 +3,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.geometry.*?>
 
-<VBox spacing="15" alignment="TOP_CENTER" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.demo2.controladores.GestionCanalesControlador">
+<VBox spacing="15" alignment="TOP_CENTER" stylesheets="@css/styles.css" styleClass="fondoGradiente" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.demo2.controladores.GestionCanalesControlador">
     <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
 
     <!-- Título de la sección -->
@@ -11,7 +11,7 @@
 
     <!-- Sección para añadir un nuevo canal -->
     <HBox spacing="10">
-        <TextField fx:id="nombreCanalTextField" promptText="Nombre del canal"/>
+        <TextField fx:id="nombreCanalTextField" promptText="Nombre del canal" style="-fx-background-radius: 50; -fx-border-radius: 50;"/>
         <Button text="Crear Canal" fx:id="crearCanalButton" onAction="#crearCanal"/>
     </HBox>
 

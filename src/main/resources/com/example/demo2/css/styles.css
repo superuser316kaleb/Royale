@@ -1,0 +1,108 @@
+.root {
+    -fx-background-color: #525151;
+    -fx-font-family: "Agency FB";
+    -fx-font-size: 10pt;
+    -fx-text-fill: #bd8def;
+}
+.button_options{
+    -fx-background-color: transparent;
+    -fx-font-size: 23;
+    -fx-text-fill: white;
+}
+
+.button_options:hover{
+    -fx-background-color:#de8787;
+}
+
+.button_options:pressed{
+    -fx-background-color: transparent;
+}
+
+.button_Logout{
+    -fx-background-color: #ec1c24;
+    -fx-font-family: "Arial Rounded MT Bold";
+    -fx-text-fill: white;
+}
+
+.button_Logout:hover{
+    -fx-background-color:#de8787
+}
+
+.button_Logout:pressed {
+    -fx-background-color: #ec1c24;
+}
+
+.button_ini{
+    -fx-background-color: transparent;
+    -fx-text-fill: #15a61a;
+    -fx-font-family: "Arial Rounded MT Bold";
+    -fx-font-size: 14;
+}
+
+.label-msj-no-see {
+    -fx-background-color: white;
+    -fx-font-family: "Arial";
+    -fx-font-size: 15px;
+    -fx-padding: 10px;
+    -fx-pref-width: 1440px;
+    -fx-wrap-text: true;
+    -fx-border-color: black;
+    -fx-border-width: 0.5px;
+}
+
+.label-msj-no-see:hover {
+    -fx-background-color: #EBEBEB;
+}
+
+.label-msj-see {
+    -fx-background-color: #A6A6A6;
+    -fx-font-family: "Arial";
+    -fx-font-size: 15px;
+    -fx-padding: 10px;
+    -fx-pref-width: 1440px;
+    -fx-wrap-text: true;
+    -fx-border-color: black;
+    -fx-border-width: 0.5px;
+}
+
+.label-msj-see:hover {
+    -fx-background-color: #EBEBEB;
+}
+
+.button-archivar{
+    -fx-background-color: white;
+    -fx-font-size: 15px;
+    -fx-border-color: black;
+    -fx-border-width: 0.3px;
+}
+
+.button-archivar:hover{
+    -fx-background-color:#E3E3E3;
+}
+
+.button-top{
+    -fx-background-color: #ec1c24;
+    -fx-font-size: 15px;
+    -fx-font-family: "Arial Rounded MT Bold";
+    -fx-text-fill: white;
+}
+
+.button-top:hover{
+    -fx-background-color:#de8787;
+    -fx-tooltip-text: "Archivar";
+}
+
+.button-top:pressed {
+    -fx-background-color: #ec1c24;
+}
+
+.lblTitle{
+    -fx-font-family: "Arial Rounded MT Bold";
+    -fx-font-size: 25px;
+    -fx-padding: 10px;
+}
+
+
+.fondoGradiente {
+    -fx-background-color: linear-gradient(to top, #800000 0%, #66188C 61%, #A81125 100%);
+}

@@ -4,11 +4,11 @@
 <?import javafx.scene.image.*?>
 <?import javafx.geometry.*?>
 
-<VBox spacing="20" alignment="TOP_CENTER" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.demo2.controladores.DetallesVideoControlador">
+<VBox spacing="20" alignment="TOP_CENTER" stylesheets="@css/styles.css" styleClass="fondoGradiente" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.demo2.controladores.DetallesVideoControlador">
     <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
 
     <!-- Título de la sección -->
-    <Label text="Detalles del Video" style="-fx-font-size: 24px; -fx-font-weight: bold;"/>
+    <Label text="Detalles del Video" style="-fx-font-size: 24px; -fx-font-weight: bold;" />
 
     <!-- Contenedor para la imagen y los detalles -->
     <HBox spacing="15">
