@@ -10,45 +10,45 @@ import java.util.Optional;
 public class VideoDAOImpl extends MySQLConnection implements Dao<Video>{
 
     Connection conn = getConnection();
-    public Video obtenerPorId(int id) {
-        String sql = "SELECT * FROM videos WHERE id = ?";
-        try (Connection conn = getConnection();
-             PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            pstmt.setInt(1, id);
-            ResultSet rs = pstmt.executeQuery();
-            if (rs.next()) {
-                return new Video(
-                        rs.getInt("id"),
-                        rs.getString("titulo"),
-                        rs.getString("descripcion")
-                        // Continúa con los demás atributos...
-                );
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
+//    public Video obtenerPorId(int id) {
+//        String sql = "SELECT * FROM videos WHERE id = ?";
+//        try (Connection conn = getConnection();
+//             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+//            pstmt.setInt(1, id);
+//            ResultSet rs = pstmt.executeQuery();
+//            if (rs.next()) {
+//                return new Video(
+//                        rs.getInt("id"),
+//                        rs.getString("titulo"),
+//                        rs.getString("descripcion")
+//                        // Continúa con los demás atributos...
+//                );
+//            }
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
+//        return null;
+//    }
 
-    public List<Video> obtenerTodos() {
-        List<Video> videos = new ArrayList<>();
-        String sql = "SELECT * FROM videos";
-        try (Connection conn = getConnection();
-             Statement stmt = conn.createStatement();
-             ResultSet rs = stmt.executeQuery(sql)) {
-            while (rs.next()) {
-                videos.add(new Video(
-                        rs.getInt("id"),
-                        rs.getString("titulo"),
-                        rs.getString("descripcion")
-                        // Continúa con los demás atributos...
-                ));
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return videos;
-    }
+//    public List<Video> obtenerTodos() {
+//        List<Video> videos = new ArrayList<>();
+//        String sql = "SELECT * FROM videos";
+//        try (Connection conn = getConnection();
+//             Statement stmt = conn.createStatement();
+//             ResultSet rs = stmt.executeQuery(sql)) {
+//            while (rs.next()) {
+//                videos.add(new Video(
+//                        rs.getInt("id"),
+//                        rs.getString("titulo"),
+//                        rs.getString("descripcion")
+//                        // Continúa con los demás atributos...
+//                ));
+//            }
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
+//        return videos;
+//    }
 
 
     public void guardar(Video video) {
@@ -72,7 +72,7 @@ public class VideoDAOImpl extends MySQLConnection implements Dao<Video>{
             pstmt.setString(1, video.getTitulo());
             pstmt.setString(2, video.getDescripcion());
             // Continúa con los demás atributos...
-            pstmt.setInt(3, video.getId());
+           // pstmt.setInt(3, video.getId());
             pstmt.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
