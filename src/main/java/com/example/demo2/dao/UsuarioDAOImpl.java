@@ -3,8 +3,11 @@ package com.example.demo2.dao;
 import com.example.demo2.MySQLConnection;
 import com.example.demo2.modelo.Tarjeta;
 import com.example.demo2.modelo.Usuario;
+import javafx.beans.binding.StringExpression;
+
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
@@ -145,5 +148,24 @@ Connection conn = getConnection();
     }
 
 
-
+    public String InicioSesion(String username, String password) {
+        String tipo="";
+        String sql= "select usuarios.tipo_usuario from usuarios" +
+                "    where usuarios.usuario=? and usuarios.contrasena=?";
+        try {
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1,username);
+            ps.setString(2,password);
+            ResultSet rs = ps.executeQuery();
+            if(!rs.isBeforeFirst()){
+                tipo="";
+            }else{
+                rs.next();
+                tipo = rs.getString(1).toString();
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return tipo;
+    }
 }
