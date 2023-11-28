@@ -15,7 +15,6 @@ public class Tarjeta {
     public Tarjeta(){
 
     }
-
     public Tarjeta(int id_usuario, int id_metodo, int cvv, int terminacion, String fecha_caducidad) {
         this.id_usuario = id_usuario;
         this.id_metodo = id_metodo;
@@ -23,6 +22,7 @@ public class Tarjeta {
         this.terminacion = terminacion;
         this.fecha_caducidad = fecha_caducidad;
     }
+
 
     public int getId_usuario() {
         return id_usuario;
