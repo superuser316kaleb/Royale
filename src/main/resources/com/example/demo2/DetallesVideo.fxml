@@ -37,8 +37,8 @@
 
     <!-- Botones de acción -->
     <HBox spacing="10" alignment="CENTER">
-        <Button text="Rentar Video" fx:id="rentarButton" onAction="#rentarVideo"/>
-        <Button text="Agregar a Favoritos" fx:id="favoritosButton" onAction="#agregarAFavoritos"/>
+        <Button text="Rentar Video" fx:id="rentarButton" onAction="#rentarVideo" style="-fx-background-color: #363535; -fx-background-radius: 50; -fx-background-radius: 50; -fx-text-fill: white "/>
+        <Button text="Agregar a Favoritos" fx:id="favoritosButton" onAction="#agregarAFavoritos" style="-fx-background-color: #363535; -fx-background-radius: 50; -fx-background-radius: 50; -fx-text-fill: white "/>
     </HBox>
 
     <!-- Sección de comentarios o calificaciones -->

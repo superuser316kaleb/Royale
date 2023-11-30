@@ -17,7 +17,7 @@
 
     <!-- Botones para acciones -->
     <HBox spacing="10" alignment="CENTER">
-        <Button text="Guardar Cambios" onAction="#guardarCambios"/>
-        <Button text="Cambiar Contraseña" onAction="#cambiarContraseña"/>
+        <Button text="Guardar Cambios" onAction="#guardarCambios" style="-fx-background-color: #363535; -fx-background-radius: 50; -fx-background-radius: 50; -fx-text-fill: white "/>
+        <Button text="Cambiar Contraseña" onAction="#cambiarContraseña" style="-fx-background-color: #363535; -fx-background-radius: 50; -fx-background-radius: 50; -fx-text-fill: white "/>
     </HBox>
 </VBox>
