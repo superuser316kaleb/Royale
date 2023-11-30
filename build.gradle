@@ -50,6 +50,11 @@ dependencies {
 
     implementation('org.kordamp.ikonli:ikonli-javafx:12.3.1')
     implementation 'org.kordamp.ikonli:ikonli-fontawesome5-pack:12.3.1'
+
+        implementation 'org.kordamp.ikonli:ikonli-core:12.2.0' // Ikonli Core
+        implementation 'org.kordamp.ikonli:ikonli-javafx:12.2.0' // Ikonli JavaFX
+        implementation 'org.kordamp.ikonli:ikonli-fontawesome-pack:12.2.0' // Pack de Font Awesome para Ikonli
+
 }
 
 test {

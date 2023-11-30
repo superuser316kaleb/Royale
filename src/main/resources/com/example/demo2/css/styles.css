@@ -1,6 +1,6 @@
 .root {
     -fx-background-color: #525151;
-    -fx-font-family: "Agency FB";
+    -fx-font-family: " Verdana, sans-serif";
     -fx-font-size: 10pt;
     -fx-text-fill: #bd8def;
 }
@@ -97,7 +97,7 @@
 }
 
 .lblTitle{
-    -fx-font-family: "Arial Rounded MT Bold";
+    -fx-font-family: " Verdana, sans-serif";
     -fx-font-size: 25px;
     -fx-padding: 10px;
 }
@@ -105,4 +105,28 @@
 
 .fondoGradiente {
     -fx-background-color: linear-gradient(to top, #800000 0%, #66188C 61%, #A81125 100%);
+}
+
+.vbox_background_left {
+    -fx-background-color: #1a1a1a;
+}
+.button_options {
+    fx-background-color: linear-gradient(to top, #800000 0%, #66188C 61%, #A81125 100%);
+    -fx-text-fill: white;
+}
+
+/* Cambiar color al pasar el cursor sobre los botones */
+.button_options:hover {
+    fx-background-color: linear-gradient(to top, #800000 0%, #66188C 61%, #A81125 100%);
+}
+
+.btn {
+
+    -fx-padding: 10px 30px;
+    -fx-border-width: 1px;
+    -fx-border-color: black; /* Cambia este color si deseas un color diferente */
+    -fx-border-radius: 1000px;
+    -fx-display: inline-block;
+    -fx-transition: all 0.2s;
+    -fx-position: relative;
 }
