@@ -7,9 +7,8 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<HBox alignment="CENTER" minWidth="460" prefHeight="427.0" prefWidth="567.0" spacing="0.0" stylesheets="@css/styles.css" styleClass="root"
-      xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:id="secondMain">
-    <VBox spacing="10" minWidth="230">
+<HBox fx:id="secondMain" alignment="CENTER" minWidth="460" prefHeight="427.0" prefWidth="567.0" spacing="0.0" styleClass="root" stylesheets="@css/styles.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+    <VBox minWidth="230" spacing="10">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
@@ -34,7 +33,7 @@
     <PasswordField fx:id="passwordField" promptText="Crea Contraseña" />
     <PasswordField fx:id="passwordField2" promptText="Confirma Contraseña" />
     <!-- Lista desplegable para seleccionar el plan  -->
-    <ComboBox fx:id="planComboBox" promptText="Selecciona un plan" onAction="#selectionClick">
+    <ComboBox fx:id="planComboBox" onAction="#selectionClick" promptText="Selecciona un plan">
         <items>
             <FXCollections fx:factory="observableArrayList">
                 <String fx:value="Visitante" />
@@ -43,33 +42,34 @@
             </FXCollections>
         </items>
     </ComboBox>
+      <Button mnemonicParsing="false" text="Regresar" onAction="#cargarInicio" />
     <Text fx:id="feedbackText" />
     <!-- Botón registro -->
     <Button maxWidth="Infinity" onAction="#onSignInButtonClick" text="Registrarse" />
     </VBox>
-    <VBox fx:id="vboxsubscripciones" minWidth="230" spacing="10" alignment="CENTER_LEFT">
+    <VBox fx:id="vboxsubscripciones" alignment="CENTER_LEFT" minWidth="230" spacing="10">
         <padding>
             <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
         </padding>
-        <Label text="Premium" >
+        <Label text="Premium">
             <font>
                 <Font size="20" />
             </font>
-        </Label><Label text="169MXN MENSUALES" >
+        </Label><Label text="169MXN MENSUALES">
             <font>
                 <Font size="20" />
             </font>
-        </Label><Label text="Basic" >
+        </Label><Label text="Basic">
             <font>
                 <Font size="20" />
             </font>
-        </Label><Label text="129MXN MENSUALES" >
+        </Label><Label text="129MXN MENSUALES">
             <font>
                 <Font size="20" />
             </font>
         </Label>
         <HBox>
-           <Label text="Agregar método de Pago "/>
+           <Label text="Agregar método de Pago " />
         </HBox>
         <ComboBox fx:id="methodComboBox" promptText="Selecciona un Método">
             <items>
@@ -80,7 +80,7 @@
             </items>
         </ComboBox>
         <Label text="Datos de la Tarjeta" />
-<TextField fx:id="cardField" promptText="xxxx-xxxx-xxxx-xxxx" />
+        <TextField fx:id="cardField" promptText="xxxx-xxxx-xxxx-xxxx" />
         <TextField fx:id="dateField" promptText="Caducidad MM/AA" />
         <TextField fx:id="cvvField" promptText="CVV" />
     </VBox>

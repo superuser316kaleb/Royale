@@ -55,43 +55,54 @@ import java.util.ResourceBundle;
                 alert.show();
             }else {
                 feedbackText.setText("Inicio de sesión exitoso.");
-                FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Dashboard.fxml"));
-                //Cargar el controlador
-                DashboardControlador dashboardControlador = new DashboardControlador();
-                //Colocar el controlador al FXML
-                fxmlLoader.setController(dashboardControlador);
-                Parent root = fxmlLoader.load();
-                Stage stage = new Stage();
-                Scene scene = new Scene(root);
-                stage.setScene(scene);
-                stage.setMaximized(true);
-                dashboardControlador.setStage(stage);
-                stage.show();
-                this.stage.close();
+               cargarDashboard();
             }
         }
     }
 
     @FXML
     protected void onRegisterLinkClick() throws IOException {
-
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource(   "RegistroUsuario.fxml"));
-        //Cargar el controlador
-        RegistroUsuarioControlador registroUsuarioControlador = new RegistroUsuarioControlador();
-        //Colocar el controlador al FXML
-        fxmlLoader.setController(registroUsuarioControlador);
-
-        Parent root = fxmlLoader.load();
-
-        Stage stage = new Stage();
-        Scene scene = new Scene(root);
-
-        stage.setScene(scene);
-        registroUsuarioControlador.setStage(stage);
-        stage.show();
-        this.stage.close();
-
+            cargarRegistro();
     }
+        @FXML
+        protected void cargarDashboard() throws IOException {
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource(   "Dashboard.fxml"));
+            //Cargar el controlador
+            DashboardControlador dashboardControlador = new DashboardControlador();
+            //Colocar el controlador al FXML
+            fxmlLoader.setController(dashboardControlador);
+
+            Parent root = fxmlLoader.load();
+
+            Stage stage = new Stage();
+            Scene scene = new Scene(root);
+
+            stage.setScene(scene);
+            dashboardControlador.setStage(stage);
+            stage.show();
+            this.stage.close();
+
+        }
+        @FXML
+        protected void cargarRegistro() throws IOException {
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource(   "RegistroUsuario.fxml"));
+            //Cargar el controlador
+            RegistroUsuarioControlador registroUsuarioControlador = new RegistroUsuarioControlador();
+            //Colocar el controlador al FXML
+            fxmlLoader.setController(registroUsuarioControlador);
+
+            Parent root = fxmlLoader.load();
+
+            Stage stage = new Stage();
+            Scene scene = new Scene(root);
+
+            stage.setScene(scene);
+            registroUsuarioControlador.setStage(stage);
+            stage.show();
+            this.stage.close();
+
+        }
+
         public void setStage(Stage stageA) {
             stage = stageA;
 

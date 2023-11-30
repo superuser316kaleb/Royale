@@ -1,5 +1,6 @@
     package com.example.demo2.controladores;
 
+    import com.example.demo2.HelloApplication;
     import com.example.demo2.MySQLConnection;
     import com.example.demo2.dao.UsuarioDAOImpl;
     import com.example.demo2.modelo.Tarjeta;
@@ -96,11 +97,12 @@
                     feedbackText.setText("Registro exitoso para " + selectedPlan);
                     feedbackText.setText("Creación de usuario "+selectedPlan+" exitosa.");
                     usuarioDAO.save(getUserInfo());
+                    //cargarInicio();
                 } else {
                     feedbackText.setText("Las contraseñas no coinciden.");
                     limpiarCampos();
                 } if (selectedPlan.equals("Premium")||selectedPlan.equals("Básico")||contrasena.equals(password2)) {
-                    if (card.isEmpty() || date.isEmpty() || cvv.isEmpty()|| methodComboBox.getValue()==null) {
+                    if (card.isEmpty() || date.isEmpty() || cvv.isEmpty()|| selectedMethod.isEmpty()) {
                         feedbackText.setText("Por favor, llena todos los campos.");
                         limpiarCampos();
                     } else {
@@ -112,9 +114,30 @@
                         } else if (methodComboBox.getValue().equals("Débito")) {
                             usuarioDAO.saveTarjeta(getTarjetaInfo(2));
                         }
+                     //   cargarInicio();
                     }
                 }
             }
+        }
+
+        @FXML
+        protected void cargarInicio() throws IOException {
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource(   "hello-view.fxml"));
+            //Cargar el controlador
+            InicioSesionControlador inicioSesionControlador = new InicioSesionControlador();
+            //Colocar el controlador al FXML
+            fxmlLoader.setController(inicioSesionControlador);
+
+            Parent root = fxmlLoader.load();
+
+            Stage stage = new Stage();
+            Scene scene = new Scene(root);
+
+            stage.setScene(scene);
+            inicioSesionControlador.setStage(stage);
+            stage.show();
+            this.stage.close();
+
         }
         protected Usuario getUserInfo(){
             String usuario = usernameField.getText();
@@ -162,36 +185,10 @@
             passwordField.setText("");
             passwordField2.setText("");
         }
-            public void setStage(Stage stageA) {
+        public void setStage(Stage stageA) {
                  stage = stageA;
 
             }
-
-
-        @FXML
-        protected void cargarDashboard() throws IOException {
-
-
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("com/example/demo2/Dashboard.fxml"));
-
-
-            //Cargar el controlador
-            DashboardControlador dashboardControlador = new DashboardControlador();
-
-            //Colocar el controlador al FXML
-            fxmlLoader.setController(dashboardControlador);
-
-            Parent root = fxmlLoader.load();
-
-            Stage stage = new Stage();
-            Scene scene = new Scene(root);
-
-            stage.setScene(scene);
-            dashboardControlador.setStage(stage);
-            stage.show();
-            this.stage.close();
-
-        }
 
         private static String obtenerTerminacion(String tarjeta) {
             if (tarjeta.length() >= 4) {
