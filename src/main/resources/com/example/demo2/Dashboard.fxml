@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
 
 <VBox alignment="TOP_CENTER" spacing="20" stylesheets="@css/styles.css" styleClass="fondoGradiente" xmlns:fx="http://javafx.com/fxml/1"
       xmlns="http://javafx.com/javafx/17.0.2-ea">
@@ -39,7 +41,11 @@
     <!-- Recomendaciones Personalizadas -->
     <VBox spacing="10">
         <Label style="-fx-font-size: 20px;" text="Recomendado para ti" />
-        <ListView fx:id="listaRecomendaciones" prefHeight="200" />
+        <ScrollPane fx:id="scrollRecomendaciones" fitToWidth="true" hbarPolicy="AS_NEEDED">
+            <HBox fx:id="hboxRecomendaciones" spacing="10" alignment="CENTER_LEFT">
+                <!-- Las imágenes del carrusel se añadirán aquí dinámicamente -->
+            </HBox>
+        </ScrollPane>
     </VBox>
 
     <!-- Sección de Noticias o Anuncios -->
