@@ -7,12 +7,13 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.control.Hyperlink;
+import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class DashboardControlador implements Initializable {
-
+    Stage stage;
     @FXML
     private HBox hboxRecomendaciones;
 
@@ -47,6 +48,10 @@ public class DashboardControlador implements Initializable {
         // Ajusta el ScrollPane para que se ajuste al ancho y solo muestre la barra de desplazamiento horizontal cuando sea necesario
         scrollRecomendaciones.setFitToWidth(true);
         scrollRecomendaciones.setHbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
+    }
+    public void setStage(Stage stageA) {
+        stage = stageA;
+
     }
 }
 
