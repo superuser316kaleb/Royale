@@ -19,5 +19,22 @@ public class DashboardControlador implements Initializable {
          stage = stageA;
 
     }
+
+    @FXML
+    public void onReportClick(){
+
+    }
+    @FXML
+    public void oncanalesClick(){
+
+    }
+    @FXML
+    public void onSalesClick(){
+
+    }
+    @FXML
+    public void onFavClick(){
+
+    }
     // Aquí puedes agregar métodos para manejar eventos específicos de la pantalla principal
 }

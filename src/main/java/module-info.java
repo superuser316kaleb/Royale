@@ -3,6 +3,7 @@ module com.example.demo2 {
     requires javafx.fxml;
     requires java.sql;
     requires static lombok;
+    requires org.kordamp.ikonli.javafx;
 
 
 

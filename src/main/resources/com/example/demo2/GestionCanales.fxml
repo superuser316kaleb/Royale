@@ -1,30 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.geometry.*?>
 
-<VBox spacing="15" alignment="TOP_CENTER" stylesheets="@css/styles.css" styleClass="fondoGradiente" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.demo2.controladores.GestionCanalesControlador">
-    <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+<VBox alignment="TOP_CENTER" spacing="15" styleClass="fondoGradiente" stylesheets="@css/styles.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17.0.2-ea" fx:controller="com.example.demo2.controladores.GestionCanalesControlador">
+    <padding><Insets bottom="20" left="20" right="20" top="20" /></padding>
 
     <!-- Título de la sección -->
-    <Label text="Gestión de Canales" style="-fx-font-size: 24px; -fx-font-weight: bold;"/>
+    <Label style="-fx-font-size: 24px; -fx-font-weight: bold;" text="Gestión de Canal" />
 
     <!-- Sección para añadir un nuevo canal -->
     <HBox spacing="10">
-        <TextField fx:id="nombreCanalTextField" promptText="Nombre del canal" style="-fx-background-radius: 50; -fx-border-radius: 50;"/>
-        <Button text="Crear Canal" fx:id="crearCanalButton" onAction="#crearCanal"/>
+        <TextField fx:id="nombreCanalTextField" promptText="Nombre del canal" style="-fx-background-radius: 50; -fx-border-radius: 50;" />
+        <Button fx:id="crearCanalButton" onAction="#crearCanal" text="Crear Canal" />
     </HBox>
 
     <!-- Lista de canales -->
-    <Label text="Canales Existentes" style="-fx-font-size: 18px;"/>
+    <Label style="-fx-font-size: 18px;" text="Canales Existentes" />
     <ListView fx:id="canalesListView" prefHeight="250">
         <!-- Aquí se mostrarán los canales -->
     </ListView>
 
     <!-- Botones de acción para el canal seleccionado -->
-    <HBox spacing="10" alignment="CENTER">
-        <Button text="Ver Detalles" fx:id="verDetallesButton" onAction="#verDetalles"/>
-        <Button text="Editar" fx:id="editarButton" onAction="#editarCanal"/>
-        <Button text="Eliminar" fx:id="eliminarButton" onAction="#eliminarCanal"/>
+    <HBox alignment="CENTER" spacing="10">
+        <Button fx:id="verDetallesButton" onAction="#verDetalles" text="Ver Detalles" />
+        <Button fx:id="editarButton" onAction="#editarCanal" text="Editar" />
+        <Button fx:id="eliminarButton" onAction="#eliminarCanal" text="Eliminar" />
     </HBox>
 </VBox>
