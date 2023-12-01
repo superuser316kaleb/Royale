@@ -1,12 +1,19 @@
 package com.example.demo2.controladores;
 
+import com.example.demo2.HelloApplication;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 import com.example.demo2.modelo.Usuario;
 import com.example.demo2.dao.UsuarioDAOImpl;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class DetallesUsuarioControlador {
-
+    Stage stage;
     @FXML
     private TextField nombreTextField;
     @FXML
@@ -19,17 +26,36 @@ public class DetallesUsuarioControlador {
     @FXML
     private void initialize() {
         // Cargar los detalles del usuario al inicializar la ventana
-        cargarDetallesUsuario();
     }
 
-    private void cargarDetallesUsuario() {
-        // Aquí iría la lógica para cargar los datos del usuario desde la base de datos
-        // y mostrarlos en los campos de texto.
-    }
 
     @FXML
     private void guardarCambios() {
         // Aquí iría la lógica para tomar los datos de los campos de texto
         // y actualizarlos en la base de datos.
+    }
+
+    public void setStage(Stage stageA) {
+        stage = stageA;
+
+    }
+    @FXML
+    protected void cargarDashboard() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource(   "Dashboard.fxml"));
+        //Cargar el controlador
+        DashboardControlador dashboardControlador = new DashboardControlador();
+        //Colocar el controlador al FXML
+        fxmlLoader.setController(dashboardControlador);
+
+        Parent root = fxmlLoader.load();
+
+        Stage stage = new Stage();
+        Scene scene = new Scene(root);
+
+        stage.setScene(scene);
+        dashboardControlador.setStage(stage);
+        stage.show();
+        this.stage.close();
+
     }
 }

@@ -97,7 +97,7 @@
                     feedbackText.setText("Registro exitoso para " + selectedPlan);
                     feedbackText.setText("Creación de usuario "+selectedPlan+" exitosa.");
                     usuarioDAO.save(getUserInfo());
-                    //cargarInicio();
+                    cargarInicio();
                 } else {
                     feedbackText.setText("Las contraseñas no coinciden.");
                     limpiarCampos();
@@ -114,7 +114,7 @@
                         } else if (methodComboBox.getValue().equals("Débito")) {
                             usuarioDAO.saveTarjeta(getTarjetaInfo(2));
                         }
-                     //   cargarInicio();
+                        cargarInicio();
                     }
                 }
             }
@@ -132,7 +132,6 @@
 
             Stage stage = new Stage();
             Scene scene = new Scene(root);
-
             stage.setScene(scene);
             inicioSesionControlador.setStage(stage);
             stage.show();
@@ -195,7 +194,7 @@
                 // Obtener los últimos 4 dígitos
                 return tarjeta.substring(tarjeta.length() - 4);
             } else {
-                return "Número no válido";
+                return "";
             }
         }
 
