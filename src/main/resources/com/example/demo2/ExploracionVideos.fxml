@@ -12,14 +12,14 @@
     <!-- Campo de búsqueda -->
     <HBox spacing="10">
         <TextField fx:id="busquedaTextField" promptText="Buscar videos..." style="-fx-background-radius: 50; -fx-border-radius: 50;"/>
-        <Button text="Buscar" fx:id="buscarButton" onAction="#buscarVideos"/>
+        <Button text="Buscar" fx:id="buscarButton" onAction="#buscarVideos" style="-fx-background-color: #3d3b3f; -fx-background-radius: 50; -fx-background-radius: 50; -fx-text-fill: white "/>
     </HBox>
 
     <!-- Botones de filtro por categoría -->
     <HBox spacing="10">
-        <Button text="Todos" onAction="#filtrarTodos"/>
-        <Button text="Acción" onAction="#filtrarAccion"/>
-        <Button text="Comedia" onAction="#filtrarComedia"/>
+        <Button text="Todos" onAction="#filtrarTodos" style="-fx-background-color: #bd8def; -fx-background-radius: 50; -fx-background-radius: 50; -fx-text-fill: white "/>
+        <Button text="Acción" onAction="#filtrarAccion" style="-fx-background-color: #779696; -fx-background-radius: 50; -fx-background-radius: 50; -fx-text-fill: white "/>
+        <Button text="Comedia" onAction="#filtrarComedia" style="-fx-background-color: #f35454; -fx-background-radius: 50; -fx-background-radius: 50; -fx-text-fill: white "/>
         <!-- Más botones de categoría según sea necesario -->
     </HBox>
 
