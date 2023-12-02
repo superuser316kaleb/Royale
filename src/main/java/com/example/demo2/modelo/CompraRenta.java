@@ -1,6 +1,10 @@
 package com.example.demo2.modelo;
 
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 public class CompraRenta {
     private int id_usuario;
     private int id_video;
@@ -21,55 +25,6 @@ public class CompraRenta {
         this.costo = costo;
     }
 
-    // Getters y setters para cada campo
-
-    public int getIdUsuario() {
-        return id_usuario;
-    }
-
-    public void setIdUsuario(int idUsuario) {
-        this.id_usuario = idUsuario;
-    }
-
-    public int getIdVideo() {
-        return id_video;
-    }
-
-    public void setIdVideo(int idVideo) {
-        this.id_video = idVideo;
-    }
-
-    public String getFecha() {
-        return fecha;
-    }
-
-    public void setFecha(String fecha) {
-        this.fecha = fecha;
-    }
-
-    public String getTitulo() {
-        return titulo;
-    }
-
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
-    }
-
-    public String getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
-    }
-
-    public double getCosto() {
-        return costo;
-    }
-
-    public void setCosto(double costo) {
-        this.costo = costo;
-    }
 
     //toString
 

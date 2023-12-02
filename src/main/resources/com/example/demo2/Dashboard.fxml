@@ -9,14 +9,14 @@
 
 <AnchorPane fx:id="pane1" prefHeight="800.0" prefWidth="1535.0" stylesheets="@css/styles.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
 
-    <AnchorPane layoutX="-6.0" prefHeight="800.0" prefWidth="318.0" styleClass="vbox_background_left" stylesheets="css/styles.css">
+    <AnchorPane layoutX="-6.0" prefHeight="883.0" prefWidth="318.0" styleClass="vbox_background_left" stylesheets="css/styles.css">
 
         <Label alignment="CENTER" layoutX="14.0" layoutY="14.0" prefHeight="67.0" prefWidth="75.0">
             <graphic>
                 <FontIcon iconColor="white" iconLiteral="far-user-circle" iconSize="80" />
             </graphic>
         </Label>
-        <Label fx:id="lblUser" layoutX="101.0" layoutY="30.0" prefHeight="36.0" prefWidth="163.0" textFill="WHITE" onMouseClicked="#cargarDetallesUsuario">
+        <Label fx:id="lblUser" layoutX="101.0" layoutY="30.0" onMouseClicked="#cargarDetallesUsuario" prefHeight="36.0" prefWidth="163.0" textFill="WHITE">
             <font>
                 <Font name="Arial Rounded MT Bold" size="30.0" />
             </font>
@@ -55,7 +55,7 @@
                 </graphic>
             </Button>
 
-            <Button fx:id="btnSalesReport"  onAction="#onSalesClick" prefHeight="60.0" prefWidth="320.0" styleClass="button_options" text="COMPRA-VENTA">
+            <Button fx:id="btnSalesReport" onAction="#onSalesClick" prefHeight="60.0" prefWidth="320.0" styleClass="button_options" text="COMPRA-VENTA">
                 <cursor>
                     <Cursor fx:constant="HAND" />
                 </cursor>
@@ -78,18 +78,18 @@
 
         </VBox>
     </AnchorPane>
-    <VBox prefWidth="1250.0" spacing="10.0" styleClass="fondoGradiente" stylesheets="css/styles.css" AnchorPane.rightAnchor="0.0">
+    <VBox prefHeight="876.0" prefWidth="1280.0" spacing="10.0" styleClass="fondoGradiente" stylesheets="css/styles.css" AnchorPane.rightAnchor="0.0">
         <padding><Insets bottom="20" left="20" right="20" top="20" /></padding>
         <!-- Título y Barra de Navegación -->
         <HBox alignment="TOP_CENTER" spacing="10" stylesheets="css/styles.css">
-            <Label style="-fx-font-size: 28px; -fx-font-weight: bold;" text="Royale" />
-            <Button text="Inicio" style="-fx-background-color: #363535; -fx-background-radius: 50; -fx-background-radius: 50; -fx-text-fill: white " />
-            <Button  text="Categorías"  style="-fx-background-color: #363535; -fx-background-radius: 50; -fx-background-radius: 50; -fx-text-fill: white "/>
-            <Button  text="Mi Lista"  style="-fx-background-color: #363535; -fx-background-radius: 50; -fx-background-radius: 50; -fx-text-fill: white "/>
-            <Button  text="Perfil"  style="-fx-background-color: #363535; -fx-background-radius: 50; -fx-background-radius: 50; -fx-text-fill: white "/>
+            <Label style="-fx-font-size: 28px; -fx-font-weight: bold;" text="Royale" styleClass="lblTitle" />
+            <Button style="-fx-background-color: #363535; -fx-background-radius: 50; -fx-background-radius: 50; -fx-text-fill: white " text="Inicio" />
+            <Button style="-fx-background-color: #363535; -fx-background-radius: 50; -fx-background-radius: 50; -fx-text-fill: white " text="Categorías" />
+            <Button style="-fx-background-color: #363535; -fx-background-radius: 50; -fx-background-radius: 50; -fx-text-fill: white " text="Mi Lista" />
+            <Button style="-fx-background-color: #363535; -fx-background-radius: 50; -fx-background-radius: 50; -fx-text-fill: white " text="Perfil" />
             <!-- Barra de Búsqueda -->
-            <TextField fx:id="busquedaTextField" promptText="Buscar..." style="-fx-background-radius: 50; -fx-background-radius: 50;"  />
-            <Button  text="Buscar"   style="-fx-background-color: #363535; -fx-background-radius: 50; -fx-background-radius: 50; -fx-text-fill: white " />
+            <TextField fx:id="busquedaTextField" promptText="Buscar..." style="-fx-background-radius: 50; -fx-background-radius: 50;" />
+            <Button style="-fx-background-color: #363535; -fx-background-radius: 50; -fx-background-radius: 50; -fx-text-fill: white " text="Buscar" />
         </HBox>
 
         <!-- Carrusel de Destacados -->

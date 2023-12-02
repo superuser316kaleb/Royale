@@ -15,7 +15,7 @@ public class HelloApplication extends Application {
         InicioSesionControlador inicioSesionControlador= new InicioSesionControlador();
         fxmlLoader.setController(inicioSesionControlador);
         Scene scene = new Scene(fxmlLoader.load(), 420, 340);
-        stage.setTitle("Hello!");
+        stage.setTitle("Royale");
         stage.setScene(scene);
         stage.show();
         inicioSesionControlador.setStage(stage);

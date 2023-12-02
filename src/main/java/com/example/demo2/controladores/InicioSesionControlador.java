@@ -87,6 +87,7 @@ public class InicioSesionControlador implements Initializable {
             Scene scene = new Scene(root);
 
             stage.setScene(scene);
+            stage.setMaximized(true);
             dashboardControlador.setStage(stage);
             stage.show();
             this.stage.close();
