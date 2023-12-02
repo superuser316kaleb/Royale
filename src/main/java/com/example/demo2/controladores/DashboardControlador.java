@@ -1,11 +1,13 @@
 package com.example.demo2.controladores;
 
 import com.example.demo2.HelloApplication;
+import com.example.demo2.modelo.Usuario;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -16,6 +18,10 @@ import java.util.ResourceBundle;
 
 public class DashboardControlador implements Initializable {
     Stage stage;
+    private Usuario usuarioActual;
+
+    @FXML
+    Label lblUser;
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -41,7 +47,11 @@ public class DashboardControlador implements Initializable {
     public void onFavClick() throws IOException {
         cargarReproductorVideos();
     }
-
+    public void inicializarUsuario(Usuario usuario) {
+        this.usuarioActual = usuario;
+        // Accede al nombre de usuario y actualiza la interfaz gráfica
+        lblUser.setText(usuario.getUsuario());
+    }
 
     public void cargarReproductorVideos() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource(   "ReproductorVideos.fxml"));

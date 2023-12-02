@@ -148,7 +148,7 @@
             String domicilio = addressField.getText();
             String telefono = phoneField.getText();
             int id_suscripcion =1;
-            int tipo_usuario=1;
+            String tipo_usuario="usuario";
             if (selectedPlan.equals("Premium")){
                 id_suscripcion=3;
             }else if (selectedPlan.equals("Básico")){
@@ -164,7 +164,7 @@
             usuario1.setDomicilio(domicilio);
             usuario1.setTelefono(telefono);
             usuario1.setId_tipo_suscripcion(id_suscripcion);
-            usuario1.setTipo_usuario(tipo_usuario);
+
 
             return usuario1;
         }

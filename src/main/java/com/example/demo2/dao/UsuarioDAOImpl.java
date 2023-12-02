@@ -18,18 +18,24 @@ public class UsuarioDAOImpl extends MySQLConnection implements Dao<Usuario> {
 Connection conn = getConnection();
 
 
-    public Usuario obtenerPorId(int id) {
-        String sql = "SELECT * FROM usuarios WHERE id = ?";
+    public Usuario obtenerPorUsuario(String nusuario) {
+        String sql = "SELECT * FROM usuarios WHERE usuario = ?";
         try (Connection conn = getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            pstmt.setInt(1, id);
+            pstmt.setString(1, nusuario);
             ResultSet rs = pstmt.executeQuery();
             if (rs.next()) {
                 Usuario usuario = new Usuario();
-                usuario.setId_usuario(rs.getInt("id"));
+                usuario.setId_usuario(rs.getInt("id_usuario"));
+                usuario.setUsuario(rs.getString("usuario"));
                 usuario.setNombre(rs.getString("nombre"));
                 usuario.setEmail(rs.getString("email"));
-                // Set other fields...
+                usuario.setContrasena(rs.getString("contrasena"));
+                usuario.setApellido(rs.getString("apellido"));
+                usuario.setDomicilio(rs.getString("domicilio"));
+                usuario.setTelefono(rs.getString("telefono"));
+                usuario.setId_tipo_suscripcion(rs.getInt("id_tipo_suscripcion"));
+                usuario.setTipo_usuario(rs.getString("tipo_usuario"));
                 return usuario;
             }
         } catch (SQLException e) {

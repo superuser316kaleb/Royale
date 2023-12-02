@@ -2,6 +2,7 @@ package com.example.demo2.controladores;
 
 import com.example.demo2.HelloApplication;
 import com.example.demo2.dao.UsuarioDAOImpl;
+import com.example.demo2.modelo.Usuario;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -16,9 +17,14 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
 import java.util.ResourceBundle;
 
-    public class InicioSesionControlador implements Initializable {
+import static com.example.demo2.MySQLConnection.getConnection;
+
+public class InicioSesionControlador implements Initializable {
+        UsuarioDAOImpl usuDao = new UsuarioDAOImpl();
+        Usuario usuario = new Usuario();
     Stage stage;
     @FXML
     private Text feedbackText;
@@ -36,14 +42,15 @@ import java.util.ResourceBundle;
         public void initialize(URL location, ResourceBundle resources) {
             passwordField.setText("takemeho");
             usernameField.setText("master_chief");
+
         }
 
     @FXML
     protected void onLoginButtonClick() throws IOException {
         String username = usernameField.getText();
-
         String password = passwordField.getText();
-        UsuarioDAOImpl usuDao = new UsuarioDAOImpl();
+
+
 
         // Lógica de inicio de sesión
         if (username.isEmpty() || password.isEmpty()) {
