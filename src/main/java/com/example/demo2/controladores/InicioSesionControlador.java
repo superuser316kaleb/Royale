@@ -34,12 +34,14 @@ import java.util.ResourceBundle;
 
         @Override
         public void initialize(URL location, ResourceBundle resources) {
-
+            passwordField.setText("takemeho");
+            usernameField.setText("master_chief");
         }
 
     @FXML
     protected void onLoginButtonClick() throws IOException {
         String username = usernameField.getText();
+
         String password = passwordField.getText();
         UsuarioDAOImpl usuDao = new UsuarioDAOImpl();
 

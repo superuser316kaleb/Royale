@@ -38,10 +38,28 @@ public class DashboardControlador implements Initializable {
 
     }
     @FXML
-    public void onFavClick(){
-
+    public void onFavClick() throws IOException {
+        cargarReproductorVideos();
     }
 
+
+    public void cargarReproductorVideos() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource(   "ReproductorVideos.fxml"));
+        //Cargar el controlador
+        ReproductorVideosControlador reproductorVideosControlador = new ReproductorVideosControlador();
+        //Colocar el controlador al FXML
+        fxmlLoader.setController(reproductorVideosControlador);
+
+        Parent root = fxmlLoader.load();
+
+        Stage stage = new Stage();
+        Scene scene = new Scene(root);
+
+        stage.setScene(scene);
+        reproductorVideosControlador.setStage(stage);
+        stage.show();
+        this.stage.close();
+    }
     @FXML
     public void cargarDetallesUsuario() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource(   "DetallesUsuario.fxml"));
@@ -57,5 +75,4 @@ public class DashboardControlador implements Initializable {
         stage.show();
         this.stage.close();
     }
-    // Aquí puedes agregar métodos para manejar eventos específicos de la pantalla principal
 }

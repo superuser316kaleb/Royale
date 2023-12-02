@@ -4,6 +4,7 @@ module com.example.demo2 {
     requires java.sql;
     requires static lombok;
     requires org.kordamp.ikonli.javafx;
+    requires javafx.web;
 
 
 
