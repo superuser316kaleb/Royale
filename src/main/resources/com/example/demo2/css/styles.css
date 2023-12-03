@@ -7,7 +7,7 @@
 .button_options{
     -fx-background-color: transparent;
     -fx-font-size: 23;
-    -fx-text-fill: white;
+    -fx-text-fill: #f5f3f3;
 }
 
 .button_options:hover{
@@ -32,6 +32,7 @@
 .button_Logout:pressed {
     -fx-background-color: #ec1c24;
 }
+
 
 .button_ini{
     -fx-background-color: transparent;

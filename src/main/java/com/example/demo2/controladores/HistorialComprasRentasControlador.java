@@ -8,10 +8,12 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 
 import java.util.List;
 
 public class HistorialComprasRentasControlador {
+    Stage stage;
     @FXML
     private DatePicker fechaInicioPicker;
 
@@ -65,5 +67,8 @@ public class HistorialComprasRentasControlador {
     }
 
 
+    public void setStage(Stage stageA) {
+        stage = stageA;
+    }
 }
 

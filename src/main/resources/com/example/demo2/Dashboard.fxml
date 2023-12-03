@@ -8,16 +8,15 @@
 <?import javafx.scene.text.*?>
 <?import org.kordamp.ikonli.javafx.*?>
 
-<AnchorPane fx:id="pane1" prefHeight="800.0" prefWidth="1535.0" stylesheets="@css/styles.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
-
-    <AnchorPane layoutX="-6.0" prefHeight="883.0" prefWidth="318.0" styleClass="vbox_background_left" stylesheets="css/styles.css">
-
+<ScrollPane fitToWidth="true" fitToHeight="true" hbarPolicy="NEVER" vbarPolicy="AS_NEEDED">
+<AnchorPane fx:id="pane1" prefHeight="876.0" prefWidth="1535.0" stylesheets="@css/styles.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+    <AnchorPane layoutX="-6.0" prefHeight="876.0" prefWidth="318.0" styleClass="vbox_background_left" stylesheets="css/styles.css">
         <Label alignment="CENTER" layoutX="14.0" layoutY="14.0" prefHeight="67.0" prefWidth="75.0">
             <graphic>
-                <FontIcon iconColor="white" iconLiteral="far-user-circle" iconSize="80" />
+                <FontIcon iconColor="#6b1a86" iconLiteral="far-user-circle" iconSize="80" />
             </graphic>
         </Label>
-        <Label fx:id="lblUser" layoutX="101.0" layoutY="30.0" onMouseClicked="#cargarDetallesUsuario" prefHeight="36.0" prefWidth="163.0" textFill="WHITE">
+        <Label fx:id="lblUser" layoutX="101.0" layoutY="30.0"  prefHeight="36.0" prefWidth="163.0" textFill="WHITE">
             <font>
                 <Font name="Arial Rounded MT Bold" size="30.0" />
             </font>
@@ -29,34 +28,34 @@
         </Label>
         <VBox alignment="CENTER" layoutX="-1.0" layoutY="135.0" prefHeight="240.0" prefWidth="311.0" spacing="80.0">
 
-            <Button fx:id="btnInfo" onAction="#cargarDetallesUsuario" prefHeight="60.0" prefWidth="359.0" styleClass="button_options" text="INFORMACIÓN">
+            <Button fx:id="btnInfo"  prefHeight="60.0" prefWidth="359.0" styleClass="button_options" text="INFORMACIÓN">
                 <cursor>
                     <Cursor fx:constant="HAND" />
                 </cursor>
                 <graphic>
-                    <FontIcon iconColor="white" iconLiteral="fas-cloud-upload-alt" iconSize="30" />
+                    <FontIcon iconColor="white" iconLiteral="fas-info-circle" iconSize="30" />
                 </graphic>
             </Button>
 
-            <Button fx:id="btnCanales" onAction="#oncanalesClick" prefHeight="60.0" prefWidth="359.0" styleClass="button_options" text="CANALES">
+            <Button fx:id="btnCanales"  prefHeight="60.0" prefWidth="359.0" styleClass="button_options" text="CANALES">
                 <cursor>
                     <Cursor fx:constant="HAND" />
                 </cursor>
                 <graphic>
-                    <FontIcon iconColor="white" iconLiteral="fas-cloud-upload-alt" iconSize="30" />
+                    <FontIcon iconColor="white" iconLiteral="fas-laptop" iconSize="30" />
                 </graphic>
             </Button>
 
-            <Button fx:id="btnfavorites" onAction="#onFavClick" prefHeight="60.0" prefWidth="354.0" styleClass="button_options" text="FAVORITOS">
+            <Button fx:id="btnfavorites" prefHeight="60.0" prefWidth="354.0" styleClass="button_options" text="FAVORITOS">
                 <cursor>
                     <Cursor fx:constant="HAND" />
                 </cursor>
                 <graphic>
-                    <FontIcon iconColor="white" iconLiteral="fas-chart-line" iconSize="30" />
+                    <FontIcon iconColor="white" iconLiteral="fas-star" iconSize="30" />
                 </graphic>
             </Button>
 
-            <Button fx:id="btnSalesReport" onAction="#onSalesClick" prefHeight="60.0" prefWidth="320.0" styleClass="button_options" text="COMPRA-VENTA">
+            <Button fx:id="btnSalesReport"  prefHeight="60.0" prefWidth="320.0" styleClass="button_options" stylesheets="css/styles.css" text="COMPRA-VENTA">
                 <cursor>
                     <Cursor fx:constant="HAND" />
                 </cursor>
@@ -67,7 +66,7 @@
             </Button>
 
 
-            <Button fx:id="btnReports" onAction="#onReportClick" prefHeight="60.0" prefWidth="371.0" styleClass="button_options" text="REPORTES">
+            <Button fx:id="btnReports"  prefHeight="60.0" prefWidth="371.0" styleClass="button_options" text="REPORTES">
                 <cursor>
                     <Cursor fx:constant="HAND" />
                 </cursor>
@@ -80,10 +79,10 @@
         </VBox>
     </AnchorPane>
     <VBox prefHeight="876.0" prefWidth="1280.0" spacing="10.0" styleClass="fondoGradiente" stylesheets="css/styles.css" AnchorPane.rightAnchor="0.0">
-        <padding><Insets bottom="20" left="20" right="20" top="20" /></padding>
+        <padding><Insets bottom="30" left="30" right="30" top="30" /></padding>
         <!-- Título y Barra de Navegación -->
         <HBox alignment="TOP_CENTER" spacing="10" stylesheets="css/styles.css">
-            <Label alignment="TOP_RIGHT" style="-fx-font-size: 50px; -fx-font-weight: bold;" styleClass="lblTitle" text="Royale" textOverrun="CLIP">
+            <Label alignment="TOP_RIGHT" style="-fx-font-size: 60px; -fx-font-weight: bold;" styleClass="lblTitle" text="Royale" textOverrun="CLIP">
             <font>
                <Font name="Bold Italic Art" size="38.0" />
             </font>
@@ -114,7 +113,7 @@
 
         <!-- Carrusel de Destacados -->
         <VBox alignment="CENTER" spacing="10">
-            <Label style="-fx-font-size: 20px;" text="Destacados">
+            <Label style="-fx-font-size: 25px;" text="Destacados">
             <textFill>
                <LinearGradient endX="1.0" endY="1.0">
                   <stops>
@@ -141,7 +140,7 @@
 
         <!-- Sección de Categorías -->
         <VBox spacing="10">
-            <Label style="-fx-font-size: 20px;" text="Categorías">
+            <Label style="-fx-font-size: 30px;" text="Categorías">
             <textFill>
                <LinearGradient endX="1.0" endY="1.0">
                   <stops>
@@ -165,7 +164,7 @@
 
         <!-- Recomendaciones Personalizadas -->
         <VBox spacing="10">
-            <Label style="-fx-font-size: 20px;" text="Recomendado para ti">
+            <Label style="-fx-font-size: 25px;" text="Recomendado para ti">
             <textFill>
                <LinearGradient endX="1.0" endY="1.0">
                   <stops>
@@ -187,7 +186,7 @@
 
         <!-- Sección de Noticias o Anuncios -->
         <VBox spacing="10">
-            <Label style="-fx-font-size: 20px;" text="Noticias y Anuncios">
+            <Label style="-fx-font-size: 25px;" text="Noticias y Anuncios">
             <textFill>
                <LinearGradient endX="1.0" endY="1.0">
                   <stops>
@@ -209,7 +208,7 @@
 
         <!-- Historial de Visualización Reciente -->
         <VBox spacing="10">
-            <Label style="-fx-font-size: 20px;" text="Visualizaciones Recientes">
+            <Label style="-fx-font-size: 25px;" text="Visualizaciones Recientes">
             <textFill>
                <LinearGradient endX="1.0" endY="1.0">
                   <stops>
@@ -230,3 +229,4 @@
         </VBox>
     </VBox>
 </AnchorPane>
+</ScrollPane>
