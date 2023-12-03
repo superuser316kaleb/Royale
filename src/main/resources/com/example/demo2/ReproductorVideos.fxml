@@ -1,16 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.web.*?>
+<?import org.kordamp.ikonli.javafx.*?>
 
-
-<AnchorPane stylesheets="@css/styles.css" styleClass="fondoGradiente" prefHeight="517.0" prefWidth="751.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="517.0" prefWidth="751.0" styleClass="fondoGradiente" stylesheets="@css/styles.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <VBox layoutX="-2.0" layoutY="-2.0" prefHeight="441.0" prefWidth="751.0">
          <children>
-            <Button mnemonicParsing="false" text="Volver" onAction="#cargarDashboard" styleClass="button_options"/>
+            <Button mnemonicParsing="false" onAction="#cargarDashboard" styleClass="button_options" text="Volver" />
             <WebView fx:id="webView" prefHeight="440.0" prefWidth="704.0" />
+            <HBox alignment="TOP_LEFT" spacing="10">
+               <padding><Insets left="10" right="10" top="10" /></padding>
+
+               <Button fx:id="btnlike" styleClass="button_options" stylesheets="css/styles.css">
+
+                  <graphic>
+                     <FontIcon iconColor="white" iconLiteral="fas-thumbs-up" iconSize="30" />
+                  </graphic>
+
+               </Button>
+               <Button fx:id="btndislike" styleClass="button_options" stylesheets="css/styles.css">
+
+                  <graphic>
+                     <FontIcon iconColor="white" iconLiteral="fas-thumbs-down" iconSize="30" />
+                  </graphic>
+               </Button>
+               <Button fx:id="btnaddfav" alignment="TOP_RIGHT" style="-fx-font-size: 20px;" styleClass="button_options" stylesheets="css/styles.css" text="añadir favoritos">
+                  <graphic>
+                     <FontIcon iconColor="white" iconLiteral="fas-bookmark" iconSize="30" />
+                  </graphic>
+               </Button>
+               <HBox spacing="300">
+               <Button fx:id="btndetails" prefHeight="60.0" prefWidth="371.0"  styleClass="button_options" VBox.vgrow="ALWAYS">
+                  <graphic>
+                     <HBox spacing="5">
+                        <Label alignment="BOTTOM_LEFT" style="-fx-font-size: 20px;" styleClass="button_options" text="detalles video">
+                              <font>
+                                 <Font size="1.0" />
+                              </font></Label>
+                        <FontIcon iconColor="white" iconLiteral="fas-ellipsis-v" iconSize="30" />
+                     </HBox>
+                  </graphic>
+               </Button>
+            </HBox></HBox>
          </children>
       </VBox>
    </children>

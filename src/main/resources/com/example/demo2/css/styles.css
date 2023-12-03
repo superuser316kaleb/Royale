@@ -109,6 +109,9 @@
     -fx-background-color: linear-gradient(to top, #1b0a3d 0%, #4f0373 61%, #1c0105 100%);
 }
 
+.fondoGradiente2 {
+    -fx-background-color: linear-gradient(to top, #800000 0%, #260534 61%, #1c0105 100%);
+}
 .vbox_background_left {
     -fx-background-color: #1a1a1a;
 }

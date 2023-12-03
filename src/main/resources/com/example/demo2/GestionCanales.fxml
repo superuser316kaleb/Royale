@@ -4,11 +4,31 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.paint.Color?>
 <VBox alignment="TOP_CENTER" spacing="15" styleClass="fondoGradiente" stylesheets="@css/styles.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
     <padding><Insets bottom="20" left="20" right="20" top="20" /></padding>
 
     <!-- Título de la sección -->
-    <Label style="-fx-font-size: 24px; -fx-font-weight: bold;" text="Gestión de Canal" />
+    <Label style="-fx-font-size: 24px; -fx-font-weight: bold;" text="Gestión de Canal" >
+        <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+                <stops>
+                    <Stop>
+                        <color>
+                            <Color red="0.5" green="0.5948275327682495" blue="1.0" />
+                        </color>
+                    </Stop>
+                    <Stop offset="1.0">
+                        <color>
+                            <Color red="0.5648888945579529" green="0.41333332657814026" blue="0.6526315808296204" />
+                        </color>
+                    </Stop>
+                </stops>
+            </LinearGradient>
+        </textFill>
+    </Label>
 
     <!-- Sección para añadir un nuevo canal -->
     <HBox spacing="10">
@@ -17,7 +37,22 @@
     </HBox>
 
     <!-- Lista de canales -->
-    <Label style="-fx-font-size: 18px;" text="Canales Existentes" />
+    <Label style="-fx-font-size: 18px;" text="Canales Existentes" ><textFill>
+        <LinearGradient endX="1.0" endY="1.0">
+            <stops>
+                <Stop>
+                    <color>
+                        <Color red="0.5" green="0.5948275327682495" blue="1.0" />
+                    </color>
+                </Stop>
+                <Stop offset="1.0">
+                    <color>
+                        <Color red="0.5648888945579529" green="0.41333332657814026" blue="0.6526315808296204" />
+                    </color>
+                </Stop>
+            </stops>
+        </LinearGradient>
+    </textFill></Label>
     <ListView fx:id="canalesListView" prefHeight="250">
         <!-- Aquí se mostrarán los canales -->
     </ListView>

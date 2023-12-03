@@ -7,7 +7,10 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<HBox fx:id="secondMain" alignment="CENTER" minWidth="460" prefHeight="427.0" prefWidth="567.0" spacing="0.0" styleClass="root" stylesheets="@css/styles.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.paint.Color?>
+<HBox fx:id="secondMain" alignment="CENTER" minWidth="460" prefHeight="427.0" prefWidth="567.0" spacing="0.0" styleClass="fondoGradiente2" stylesheets="@css/styles.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
     <VBox minWidth="230" spacing="10">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
@@ -15,10 +18,23 @@
 
 
     <!-- Título de la aplicación -->
-    <Label text="Nuevo en Royale?">
-        <font>
-            <Font size="20" />
-        </font>
+    <Label text="Nuevo en Royale?" style="-fx-font-size: 24px" >
+        <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+                <stops>
+                    <Stop>
+                        <color>
+                            <Color red="0.5" green="0.5948275327682495" blue="1.0" />
+                        </color>
+                    </Stop>
+                    <Stop offset="1.0">
+                        <color>
+                            <Color red="0.5648888945579529" green="0.41333332657814026" blue="0.6526315808296204" />
+                        </color>
+                    </Stop>
+                </stops>
+            </LinearGradient>
+        </textFill>
     </Label>
 
     <!-- Campo de texto para el nombre de usuario -->
@@ -51,25 +67,95 @@
         <padding>
             <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
         </padding>
-        <Label text="Premium">
-            <font>
-                <Font size="20" />
-            </font>
-        </Label><Label text="169MXN MENSUALES">
-            <font>
-                <Font size="20" />
-            </font>
-        </Label><Label text="Basic">
-            <font>
-                <Font size="20" />
-            </font>
-        </Label><Label text="129MXN MENSUALES">
-            <font>
-                <Font size="20" />
-            </font>
+        <Label text="Premium" style="-fx-font-size: 20px"> <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+                <stops>
+                    <Stop>
+                        <color>
+                            <Color red="0.5" green="0.5948275327682495" blue="1.0" />
+                        </color>
+                    </Stop>
+                    <Stop offset="1.0">
+                        <color>
+                            <Color red="0.5648888945579529" green="0.41333332657814026" blue="0.6526315808296204" />
+                        </color>
+                    </Stop>
+                </stops>
+            </LinearGradient>
+        </textFill>
+        </Label>
+        <Label text="169MXN MENSUALES" style="-fx-font-size: 20px" >
+            <textFill>
+                <LinearGradient endX="1.0" endY="1.0">
+                    <stops>
+                        <Stop>
+                            <color>
+                                <Color red="0.5" green="0.5948275327682495" blue="1.0" />
+                            </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                            <color>
+                                <Color red="0.5648888945579529" green="0.41333332657814026" blue="0.6526315808296204" />
+                            </color>
+                        </Stop>
+                    </stops>
+                </LinearGradient>
+            </textFill>
+        </Label>
+        <Label text="Basic" style="-fx-font-size: 20px"> <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+                <stops>
+                    <Stop>
+                        <color>
+                            <Color red="0.5" green="0.5948275327682495" blue="1.0" />
+                        </color>
+                    </Stop>
+                    <Stop offset="1.0">
+                        <color>
+                            <Color red="0.5648888945579529" green="0.41333332657814026" blue="0.6526315808296204" />
+                        </color>
+                    </Stop>
+                </stops>
+            </LinearGradient>
+        </textFill>
+        </Label>
+        <Label text="129MXN MENSUALES" style="-fx-font-size: 20px">
+            <textFill>
+                <LinearGradient endX="1.0" endY="1.0">
+                    <stops>
+                        <Stop>
+                            <color>
+                                <Color red="0.5" green="0.5948275327682495" blue="1.0" />
+                            </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                            <color>
+                                <Color red="0.5648888945579529" green="0.41333332657814026" blue="0.6526315808296204" />
+                            </color>
+                        </Stop>
+                    </stops>
+                </LinearGradient>
+            </textFill>
         </Label>
         <HBox>
-           <Label text="Agregar método de Pago " />
+            <Label text="Agregar método de Pago " style="-fx-font-size: 20px" >
+                <textFill>
+                    <LinearGradient endX="1.0" endY="1.0">
+                        <stops>
+                            <Stop>
+                                <color>
+                                    <Color red="0.5" green="0.5948275327682495" blue="1.0" />
+                                </color>
+                            </Stop>
+                            <Stop offset="1.0">
+                                <color>
+                                    <Color red="0.5648888945579529" green="0.41333332657814026" blue="0.6526315808296204" />
+                                </color>
+                            </Stop>
+                        </stops>
+                    </LinearGradient>
+                </textFill>
+            </Label>
         </HBox>
         <ComboBox fx:id="methodComboBox" promptText="Selecciona un Método">
             <items>
@@ -79,7 +165,22 @@
                 </FXCollections>
             </items>
         </ComboBox>
-        <Label text="Datos de la Tarjeta" />
+        <Label text="Datos de la Tarjeta" > <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+                <stops>
+                    <Stop>
+                        <color>
+                            <Color red="0.5" green="0.5948275327682495" blue="1.0" />
+                        </color>
+                    </Stop>
+                    <Stop offset="1.0">
+                        <color>
+                            <Color red="0.5648888945579529" green="0.41333332657814026" blue="0.6526315808296204" />
+                        </color>
+                    </Stop>
+                </stops>
+            </LinearGradient>
+        </textFill></Label>
         <TextField fx:id="cardField" promptText="xxxx-xxxx-xxxx-xxxx" />
         <TextField fx:id="dateField" promptText="Caducidad MM/AA" />
         <TextField fx:id="cvvField" promptText="CVV" />
