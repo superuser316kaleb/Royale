@@ -4,18 +4,56 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.paint.Color?>
 <VBox alignment="TOP_CENTER" prefHeight="324.0" prefWidth="360.0" spacing="20" styleClass="fondoGradiente" stylesheets="@css/styles.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
     <padding><Insets bottom="20" left="20" right="20" top="20" /></padding>
 
     <!-- Título de la sección -->
-    <Label style="-fx-font-size: 24px; -fx-font-weight: bold;" text="Reportes y Feedback" />
+    <Label style="-fx-font-size: 24px; -fx-font-weight: bold;" text="Reportes y Feedback" >
+        <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+                <stops>
+                    <Stop>
+                        <color>
+                            <Color red="0.5" green="0.5948275327682495" blue="1.0" />
+                        </color>
+                    </Stop>
+                    <Stop offset="1.0">
+                        <color>
+                            <Color red="0.5648888945579529" green="0.41333332657814026" blue="0.6526315808296204" />
+                        </color>
+                    </Stop>
+                </stops>
+            </LinearGradient>
+        </textFill>
+    </Label>
 
     <!-- Sección para mostrar el historial de feedback enviado -->
 
 
+
     <!-- Botón para enviar el feedback -->
-    <Button fx:id="enviarFeedbackButton" onAction="#masVistosReporte" style="-fx-font-size: 16px;" text="Vídeos Más Vistos" />
-   <Button fx:id="enviarFeedbackButton1" layoutX="78.0" layoutY="134.0" onAction="#mejorEvaluadosReporte" style="-fx-font-size: 16px;" text="Mejor Evaluados" />
-   <Button fx:id="volver" layoutX="78.0" layoutY="134.0" onAction="#cargarDashboard" style="-fx-font-size: 16px;" text="Volver" />
+    <Button  fx:id="enviarFeedbackButton" onAction="#masVistosReporte" prefHeight="60.0" prefWidth="371.0" styleClass="button_options"  text="Vídeos Más Vistos" >
+        <cursor>
+            <Cursor fx:constant="HAND" />
+        </cursor>
+        <graphic>
+            <FontIcon iconColor="white" iconLiteral="fas-file-pdf" iconSize="30" />
+        </graphic>
+    </Button>
+    <Button  fx:id="enviarFeedbackButton1" onAction="#mejorEvaluadosReporte"  prefHeight="60.0" prefWidth="371.0" styleClass="button_options"  text="Mejor Evaluados"  >
+        <cursor>
+            <Cursor fx:constant="HAND" />
+        </cursor>
+        <graphic>
+            <FontIcon iconColor="white" iconLiteral="fas-file-pdf" iconSize="30" />
+        </graphic>
+    </Button>
+
+   <Button fx:id="volver" layoutX="78.0" layoutY="134.0" onAction="#cargarDashboard"  text="Volver" style="-fx-background-color: #363535; -fx-background-radius: 50; -fx-background-radius: 50; -fx-text-fill: white "/>
 
 </VBox>
