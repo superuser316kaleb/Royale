@@ -1,6 +1,7 @@
 package com.example.demo2.controladores;
 
 import com.example.demo2.HelloApplication;
+import com.example.demo2.cache.usuarioCache;
 import com.example.demo2.modelo.Usuario;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -24,7 +25,7 @@ public class DashboardControlador implements Initializable {
     Label lblUser;
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        lblUser.setText(usuarioCache.getNombreUsuario());
     }
     public void setStage(Stage stageA) {
          stage = stageA;

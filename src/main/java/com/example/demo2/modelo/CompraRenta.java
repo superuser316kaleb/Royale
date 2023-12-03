@@ -3,8 +3,7 @@ package com.example.demo2.modelo;
 import lombok.Getter;
 import lombok.Setter;
 
-@Getter
-@Setter
+@Setter@Getter
 public class CompraRenta {
     private int id_usuario;
     private int id_video;

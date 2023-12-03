@@ -40,8 +40,8 @@ public class CompraRentaDAO {
                 "VALUES (?, ?, ?, ?)";
 
         try (PreparedStatement pstmt = conn.prepareStatement(query)) {
-            pstmt.setInt(1, compraRenta.getIdUsuario());
-            pstmt.setInt(2, compraRenta.getIdVideo());
+            pstmt.setInt(1, compraRenta.getId_usuario());
+            pstmt.setInt(2, compraRenta.getId_video());
             pstmt.setString(3, compraRenta.getFecha());
             pstmt.setDouble(4, compraRenta.getCosto());
 

@@ -1,6 +1,7 @@
 package com.example.demo2.controladores;
 
 import com.example.demo2.HelloApplication;
+import com.example.demo2.cache.usuarioCache;
 import com.example.demo2.dao.UsuarioDAOImpl;
 import com.example.demo2.modelo.Usuario;
 import javafx.fxml.FXML;
@@ -48,6 +49,7 @@ public class InicioSesionControlador implements Initializable {
     @FXML
     protected void onLoginButtonClick() throws IOException {
         String username = usernameField.getText();
+        usuarioCache.setNombreUsuario(username);
         String password = passwordField.getText();
 
 
@@ -76,16 +78,11 @@ public class InicioSesionControlador implements Initializable {
         @FXML
         protected void cargarDashboard() throws IOException {
             FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource(   "Dashboard.fxml"));
-            //Cargar el controlador
             DashboardControlador dashboardControlador = new DashboardControlador();
-            //Colocar el controlador al FXML
             fxmlLoader.setController(dashboardControlador);
-
             Parent root = fxmlLoader.load();
-
             Stage stage = new Stage();
             Scene scene = new Scene(root);
-
             stage.setScene(scene);
             stage.setMaximized(true);
             dashboardControlador.setStage(stage);
