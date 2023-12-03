@@ -4,6 +4,7 @@
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 <?import org.kordamp.ikonli.javafx.*?>
 
@@ -82,7 +83,26 @@
         <padding><Insets bottom="20" left="20" right="20" top="20" /></padding>
         <!-- Título y Barra de Navegación -->
         <HBox alignment="TOP_CENTER" spacing="10" stylesheets="css/styles.css">
-            <Label style="-fx-font-size: 28px; -fx-font-weight: bold;" text="Royale" styleClass="lblTitle" />
+            <Label alignment="TOP_RIGHT" style="-fx-font-size: 50px; -fx-font-weight: bold;" styleClass="lblTitle" text="Royale" textOverrun="CLIP">
+            <font>
+               <Font name="Bold Italic Art" size="38.0" />
+            </font>
+            <textFill>
+               <LinearGradient endX="1.0" endY="1.0">
+                  <stops>
+                     <Stop>
+                        <color>
+                           <Color red="0.2837517261505127" green="0.27379998564720154" blue="0.3700000047683716" />
+                        </color>
+                     </Stop>
+                     <Stop offset="1.0">
+                        <color>
+                           <Color red="1.0" green="1.0" blue="1.0" />
+                        </color>
+                     </Stop>
+                  </stops>
+               </LinearGradient>
+            </textFill></Label>
             <Button style="-fx-background-color: #363535; -fx-background-radius: 50; -fx-background-radius: 50; -fx-text-fill: white " text="Inicio" />
             <Button style="-fx-background-color: #363535; -fx-background-radius: 50; -fx-background-radius: 50; -fx-text-fill: white " text="Categorías" />
             <Button style="-fx-background-color: #363535; -fx-background-radius: 50; -fx-background-radius: 50; -fx-text-fill: white " text="Mi Lista" />
@@ -94,7 +114,26 @@
 
         <!-- Carrusel de Destacados -->
         <VBox alignment="CENTER" spacing="10">
-            <Label style="-fx-font-size: 20px;" text="Destacados" />
+            <Label style="-fx-font-size: 20px;" text="Destacados">
+            <textFill>
+               <LinearGradient endX="1.0" endY="1.0">
+                  <stops>
+                     <Stop>
+                        <color>
+                           <Color red="0.5" green="0.5948275327682495" blue="1.0" />
+                        </color>
+                     </Stop>
+                     <Stop offset="1.0">
+                        <color>
+                           <Color red="0.5648888945579529" green="0.41333332657814026" blue="0.6526315808296204" />
+                        </color>
+                     </Stop>
+                  </stops>
+               </LinearGradient>
+            </textFill>
+            <font>
+               <Font size="20.0" />
+            </font></Label>
             <HBox fx:id="carruselDestacados" spacing="10">
                 <!-- Imágenes o tarjetas de videos destacados -->
             </HBox>
@@ -102,7 +141,23 @@
 
         <!-- Sección de Categorías -->
         <VBox spacing="10">
-            <Label style="-fx-font-size: 20px;" text="Categorías" />
+            <Label style="-fx-font-size: 20px;" text="Categorías">
+            <textFill>
+               <LinearGradient endX="1.0" endY="1.0">
+                  <stops>
+                     <Stop>
+                        <color>
+                           <Color red="0.5" green="0.5948275327682495" blue="1.0" />
+                        </color>
+                     </Stop>
+                     <Stop offset="1.0">
+                        <color>
+                           <Color red="0.5648888945579529" green="0.41333332657814026" blue="0.6526315808296204" />
+                        </color>
+                     </Stop>
+                  </stops>
+               </LinearGradient>
+            </textFill></Label>
             <HBox spacing="15">
                 <!-- Botones de categoría -->
             </HBox>
@@ -110,19 +165,67 @@
 
         <!-- Recomendaciones Personalizadas -->
         <VBox spacing="10">
-            <Label style="-fx-font-size: 20px;" text="Recomendado para ti" />
+            <Label style="-fx-font-size: 20px;" text="Recomendado para ti">
+            <textFill>
+               <LinearGradient endX="1.0" endY="1.0">
+                  <stops>
+                     <Stop>
+                        <color>
+                           <Color red="0.5" green="0.5948275327682495" blue="1.0" />
+                        </color>
+                     </Stop>
+                     <Stop offset="1.0">
+                        <color>
+                           <Color red="0.5648888945579529" green="0.41333332657814026" blue="0.6526315808296204" />
+                        </color>
+                     </Stop>
+                  </stops>
+               </LinearGradient>
+            </textFill></Label>
             <ListView fx:id="listaRecomendaciones" prefHeight="200" />
         </VBox>
 
         <!-- Sección de Noticias o Anuncios -->
         <VBox spacing="10">
-            <Label style="-fx-font-size: 20px;" text="Noticias y Anuncios" />
+            <Label style="-fx-font-size: 20px;" text="Noticias y Anuncios">
+            <textFill>
+               <LinearGradient endX="1.0" endY="1.0">
+                  <stops>
+                     <Stop>
+                        <color>
+                           <Color red="0.5" green="0.5948275327682495" blue="1.0" />
+                        </color>
+                     </Stop>
+                     <Stop offset="1.0">
+                        <color>
+                           <Color red="0.5648888945579529" green="0.41333332657814026" blue="0.6526315808296204" />
+                        </color>
+                     </Stop>
+                  </stops>
+               </LinearGradient>
+            </textFill></Label>
             <ListView fx:id="listaNoticias" prefHeight="100" />
         </VBox>
 
         <!-- Historial de Visualización Reciente -->
         <VBox spacing="10">
-            <Label style="-fx-font-size: 20px;" text="Visualizaciones Recientes" />
+            <Label style="-fx-font-size: 20px;" text="Visualizaciones Recientes">
+            <textFill>
+               <LinearGradient endX="1.0" endY="1.0">
+                  <stops>
+                     <Stop>
+                        <color>
+                           <Color red="0.5" green="0.5948275327682495" blue="1.0" />
+                        </color>
+                     </Stop>
+                     <Stop offset="1.0">
+                        <color>
+                           <Color red="0.5648888945579529" green="0.41333332657814026" blue="0.6526315808296204" />
+                        </color>
+                     </Stop>
+                  </stops>
+               </LinearGradient>
+            </textFill></Label>
             <ListView fx:id="listaHistorial" prefHeight="100" />
         </VBox>
     </VBox>

@@ -8,6 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
@@ -36,12 +37,17 @@ public class DashboardControlador implements Initializable {
     public void onReportClick(){
 
     }
+
     @FXML
     public void oncanalesClick(){
 
     }
     @FXML
     public void onSalesClick(){
+
+    }
+    @FXML
+    public void onExitClick(){
 
     }
     @FXML
@@ -56,9 +62,7 @@ public class DashboardControlador implements Initializable {
 
     public void cargarReproductorVideos() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource(   "ReproductorVideos.fxml"));
-        //Cargar el controlador
         ReproductorVideosControlador reproductorVideosControlador = new ReproductorVideosControlador();
-        //Colocar el controlador al FXML
         fxmlLoader.setController(reproductorVideosControlador);
 
         Parent root = fxmlLoader.load();
@@ -86,4 +90,5 @@ public class DashboardControlador implements Initializable {
         stage.show();
         this.stage.close();
     }
+
 }
