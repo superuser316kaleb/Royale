@@ -17,10 +17,12 @@ public class ReportesFeedbackControlador {
     private TextArea feedbackTextArea;
 
     @FXML
-    private void enviarFeedback() {
-        // Aquí iría la lógica para enviar el feedback o reporte a la base de datos
-        // o al sistema de gestión de
-
+    private void masVistosReporte() {
+        // Aquí iría la lógica para generar el reporte de los videos más vistos.
+    }
+    @FXML
+    public void mejorEvaluadosReporte() {
+        // Aquí iría la lógica para generar el reporte de los videos mejor evaluados.
     }
 
     public void setStage(Stage stageA) {

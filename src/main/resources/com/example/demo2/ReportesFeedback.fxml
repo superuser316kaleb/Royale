@@ -4,16 +4,18 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox alignment="TOP_CENTER" spacing="20" styleClass="fondoGradiente" stylesheets="@css/styles.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo2.controladores.ReportesFeedbackControlador">
+<VBox alignment="TOP_CENTER" prefHeight="324.0" prefWidth="360.0" spacing="20" styleClass="fondoGradiente" stylesheets="@css/styles.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
     <padding><Insets bottom="20" left="20" right="20" top="20" /></padding>
 
     <!-- Título de la sección -->
     <Label style="-fx-font-size: 24px; -fx-font-weight: bold;" text="Reportes y Feedback" />
 
     <!-- Sección para mostrar el historial de feedback enviado -->
-    <Label style="-fx-font-size: 18px;" text="USUARIO ADMIN" />
+
 
     <!-- Botón para enviar el feedback -->
-    <Button fx:id="enviarFeedbackButton" onAction="#enviarFeedback" style="-fx-font-size: 16px;" text="Vídeos Más Vistos" />
-   <Button fx:id="enviarFeedbackButton1" layoutX="78.0" layoutY="134.0" onAction="#enviarFeedback" style="-fx-font-size: 16px;" text="Mejor Evaluados" />
+    <Button fx:id="enviarFeedbackButton" onAction="#masVistosReporte" style="-fx-font-size: 16px;" text="Vídeos Más Vistos" />
+   <Button fx:id="enviarFeedbackButton1" layoutX="78.0" layoutY="134.0" onAction="#mejorEvaluadosReporte" style="-fx-font-size: 16px;" text="Mejor Evaluados" />
+   <Button fx:id="volver" layoutX="78.0" layoutY="134.0" onAction="#cargarDashboard" style="-fx-font-size: 16px;" text="Volver" />
+
 </VBox>

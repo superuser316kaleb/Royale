@@ -124,6 +124,7 @@ public class DashboardControlador implements Initializable {
         Scene scene = new Scene(root);
 
         stage.setScene(scene);
+        stage.setMaximized(true);
         reproductorVideosControlador.setStage(stage);
         stage.show();
         this.stage.close();
@@ -146,7 +147,7 @@ public class DashboardControlador implements Initializable {
     }
 
     public void reports() throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("ReportesFeedback"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("ReportesFeedback.fxml"));
         ReportesFeedbackControlador reportesFeedbackControlador = new ReportesFeedbackControlador();
         fxmlLoader.setController(reportesFeedbackControlador);
 
@@ -170,12 +171,13 @@ public class DashboardControlador implements Initializable {
         Stage stage = new Stage();
         Scene scene = new Scene(root);
         stage.setScene(scene);
+        stage.setMaximized(true);
         historialComprasRentasControlador.setStage(stage);
         stage.show();
         this.stage.close();
     }
     public void showcanales() throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("GestionCanales"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("GestionCanales.fxml"));
         GestionCanalesControlador gestionCanalesControlador = new  GestionCanalesControlador();
         fxmlLoader.setController(gestionCanalesControlador);
 
