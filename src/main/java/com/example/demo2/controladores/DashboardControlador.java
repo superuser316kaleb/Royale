@@ -12,10 +12,18 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.FlowPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 
@@ -23,6 +31,7 @@ import java.util.ResourceBundle;
 public class DashboardControlador implements Initializable {
     Stage stage;
     private Usuario usuarioActual;
+    private FlowPane panelRecomendaciones;
 
     @FXML
     Button btnInfo, btnCanales, btnfavorites, btnSalesReport, btnReports;
@@ -37,6 +46,7 @@ public class DashboardControlador implements Initializable {
         btnfavorites.setOnAction(handlerButtons);
         btnSalesReport.setOnAction(handlerButtons);
         btnReports.setOnAction(handlerButtons);
+        cargarImagenesRecomendadas();
     }
 
     EventHandler<ActionEvent> handlerButtons = new EventHandler<ActionEvent>() {
@@ -190,4 +200,33 @@ public class DashboardControlador implements Initializable {
         stage.show();
         this.stage.close();
 }
+    private void cargarImagenesRecomendadas() {
+
+        List<String> rutasImagenes = obtenerRutasImagenesDeBD();
+
+        for (String ruta : rutasImagenes) {
+            Image imagen = new Image("file:" + ruta);
+            ImageView imageView = new ImageView(imagen);
+            imageView.setFitWidth(150); // tamaño
+            imageView.setFitHeight(100); // tamaño
+            imageView.setPreserveRatio(true);
+            panelRecomendaciones.getChildren().add(imageView);
+        }
+    }
+    private List<String> obtenerRutasImagenesDeBD() {
+        List<String> rutas = new ArrayList<>();
+        String sql = "SELECT ruta_columna FROM tu_tabla_imagenes";
+        try (Connection conn = tuMetodoParaConectarALaBaseDeDatos();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+            ResultSet rs = pstmt.executeQuery();
+            while (rs.next()) {
+                rutas.add(rs.getString("ruta_columna"));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+
+        }
+        return rutas;
+    }
 }
