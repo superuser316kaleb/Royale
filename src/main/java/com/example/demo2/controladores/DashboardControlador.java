@@ -1,6 +1,7 @@
 package com.example.demo2.controladores;
 
 import com.example.demo2.HelloApplication;
+import com.example.demo2.MySQLConnection;
 import com.example.demo2.cache.usuarioCache;
 import com.example.demo2.modelo.Usuario;
 import javafx.event.ActionEvent;
@@ -111,12 +112,6 @@ public class DashboardControlador implements Initializable {
     public void onExitClick() {
 
     }
-
-    @FXML
-    public void onFavClick() throws IOException {
-        cargarReproductorVideos();
-    }
-
     public void inicializarUsuario(Usuario usuario) {
         this.usuarioActual = usuario;
         // Accede al nombre de usuario y actualiza la interfaz gráfica
@@ -139,7 +134,6 @@ public class DashboardControlador implements Initializable {
         stage.show();
         this.stage.close();
     }
-
     @FXML
     public void cargarDetallesUsuario() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("DetallesUsuario.fxml"));
@@ -155,7 +149,6 @@ public class DashboardControlador implements Initializable {
         stage.show();
         this.stage.close();
     }
-
     public void reports() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("ReportesFeedback.fxml"));
         ReportesFeedbackControlador reportesFeedbackControlador = new ReportesFeedbackControlador();
@@ -170,7 +163,6 @@ public class DashboardControlador implements Initializable {
         stage.show();
         this.stage.close();
     }
-
     public void compra_renta() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("HistorialComprasRentas.fxml"));
         HistorialComprasRentasControlador historialComprasRentasControlador = new HistorialComprasRentasControlador();
@@ -196,6 +188,7 @@ public class DashboardControlador implements Initializable {
         Stage stage = new Stage();
         Scene scene = new Scene(root);
         stage.setScene(scene);
+        stage.setMaximized(true);
         gestionCanalesControlador.setStage(stage);
         stage.show();
         this.stage.close();
@@ -215,13 +208,13 @@ public class DashboardControlador implements Initializable {
     }
     private List<String> obtenerRutasImagenesDeBD() {
         List<String> rutas = new ArrayList<>();
-        String sql = "SELECT ruta_columna FROM tu_tabla_imagenes";
-        try (Connection conn = tuMetodoParaConectarALaBaseDeDatos();
+        String sql = "SELECT imagen FROM videos";
+        try (Connection conn = MySQLConnection.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
             ResultSet rs = pstmt.executeQuery();
             while (rs.next()) {
-                rutas.add(rs.getString("ruta_columna"));
+                rutas.add(rs.getString("imagsen"));
             }
         } catch (Exception e) {
             e.printStackTrace();

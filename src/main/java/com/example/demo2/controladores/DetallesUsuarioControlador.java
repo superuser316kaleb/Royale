@@ -1,6 +1,7 @@
 package com.example.demo2.controladores;
 
 import com.example.demo2.HelloApplication;
+import com.example.demo2.cache.usuarioCache;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -20,12 +21,15 @@ public class DetallesUsuarioControlador {
     private TextField emailTextField;
     // Otros campos de la interfaz de usuario
 
-    private final UsuarioDAOImpl usuarioDAO = new UsuarioDAOImpl();
+     UsuarioDAOImpl usuarioDAO = new UsuarioDAOImpl();
     private Usuario usuarioActual;
 
     @FXML
     private void initialize() {
-        // Cargar los detalles del usuario al inicializar la ventana
+        //
+        usuarioActual = usuarioDAO.obtenerPorUsuario(usuarioCache.getNombreUsuario());
+        nombreTextField.setText(usuarioActual.getNombre());
+        emailTextField.setText(usuarioActual.getEmail());
     }
 
 

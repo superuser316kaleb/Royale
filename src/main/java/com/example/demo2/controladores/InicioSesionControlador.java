@@ -1,6 +1,7 @@
 package com.example.demo2.controladores;
 
 import com.example.demo2.HelloApplication;
+import com.example.demo2.MySQLConnection;
 import com.example.demo2.cache.usuarioCache;
 import com.example.demo2.dao.UsuarioDAOImpl;
 import com.example.demo2.modelo.Usuario;
@@ -21,11 +22,15 @@ import java.net.URL;
 import java.sql.Connection;
 import java.util.ResourceBundle;
 
-import static com.example.demo2.MySQLConnection.getConnection;
+
 
 public class InicioSesionControlador implements Initializable {
-        UsuarioDAOImpl usuDao = new UsuarioDAOImpl();
-        Usuario usuario = new Usuario();
+
+
+    Connection conn = MySQLConnection.getConnection();
+
+    UsuarioDAOImpl usuDao = new UsuarioDAOImpl();
+    Usuario usuario = new Usuario();
     Stage stage;
     @FXML
     private Text feedbackText;
@@ -43,6 +48,7 @@ public class InicioSesionControlador implements Initializable {
         public void initialize(URL location, ResourceBundle resources) {
             passwordField.setText("takemeho");
             usernameField.setText("master_chief");
+
 
         }
 
@@ -67,6 +73,7 @@ public class InicioSesionControlador implements Initializable {
             }else {
                 feedbackText.setText("Inicio de sesión exitoso.");
                cargarDashboard();
+
             }
         }
     }
