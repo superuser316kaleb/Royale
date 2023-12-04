@@ -15,6 +15,7 @@ import javafx.stage.Popup;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -26,9 +27,10 @@ public class ReproductorVideosControlador implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         String url = videoCache.getUrlVideo();
-        cargarVideo(url);
-        System.out.println(videoCache.getUrlVideo());
+        System.out.println(url.replace("\"", ""));
+        cargarVideo(url.replace("\"", ""));
     }
+    @FXML
     protected void cargarVideo(String url){
         webEngine = webView.getEngine();
         webEngine.load(url);
