@@ -2,6 +2,10 @@ package com.example.demo2.dao;
 
 import com.example.demo2.MySQLConnection;
 import com.example.demo2.modelo.Video;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -50,7 +54,34 @@ public class VideoDAOImpl extends MySQLConnection implements Dao<Video>{
 //        return videos;
 //    }
 
+   /*/ public  void insertImage(String rutaImagen, int idVideo) {
+        try {
 
+
+            // lee el archivo como arreglo de bytes
+            File archivoImagen = new File(rutaImagen);
+            try (FileInputStream inputStream = new FileInputStream(archivoImagen)) {
+                byte[] imagenComoBytes = new byte[(int) archivoImagen.length()];
+                inputStream.read(imagenComoBytes);
+
+                //  la consulta SQL
+                String consultaSQL = "UPDATE videos SET imagen = ? WHERE id_video = ?";
+                PreparedStatement declaracion = conn.prepareStatement(consultaSQL);
+
+                // parámetros para la consulta
+                declaracion.setBytes(1, imagenComoBytes);
+                declaracion.setInt(2, idVideo);
+
+                // Ejecuta la consulta
+                declaracion.executeUpdate();
+
+                System.out.println("Imagen insertada correctamente en la base de datos.");
+            }
+        } catch (SQLException | IOException e) {
+            e.printStackTrace();
+        }
+    }
+    */
     public void guardar(Video video) {
         String sql = "INSERT INTO videos (titulo, descripcion) VALUES (?, ?)";
         try (Connection conn = getConnection();
@@ -90,6 +121,7 @@ public class VideoDAOImpl extends MySQLConnection implements Dao<Video>{
             e.printStackTrace();
         }
     }
+
 
     @Override
     public Optional<Video> findById(int id) {

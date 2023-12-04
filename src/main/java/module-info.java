@@ -5,7 +5,9 @@ module com.example.demo2 {
     requires static lombok;
     requires org.kordamp.ikonli.javafx;
     requires javafx.web;
-
+    requires kernel;
+    requires layout;
+    requires io;
 
 
     opens com.example.demo2 to javafx.fxml;

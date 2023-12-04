@@ -13,6 +13,9 @@ public class MySQLConnection {
     private static String dbport = "3306";
     private static String dbuser = "god";
     private static String dbpass = "123";
+    private static String rutaImagen;
+    private static int idVideo ;
+
 
 
     public static void Connect() {

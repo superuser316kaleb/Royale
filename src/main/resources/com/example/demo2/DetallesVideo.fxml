@@ -4,11 +4,31 @@
 <?import javafx.scene.image.*?>
 <?import javafx.geometry.*?>
 
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.paint.Color?>
 <VBox spacing="20" alignment="TOP_CENTER" stylesheets="@css/styles.css" styleClass="fondoGradiente" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.demo2.controladores.DetallesVideoControlador">
     <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
 
     <!-- Título de la sección -->
-    <Label text="Detalles del Video" style="-fx-font-size: 24px; -fx-font-weight: bold;" />
+    <Label text="Detalles del Video" style="-fx-font-size: 24px; -fx-font-weight: bold;">
+        <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+                <stops>
+                    <Stop>
+                        <color>
+                            <Color red="0.5" green="0.5948275327682495" blue="1.0" />
+                        </color>
+                    </Stop>
+                    <Stop offset="1.0">
+                        <color>
+                            <Color red="0.5648888945579529" green="0.41333332657814026" blue="0.6526315808296204" />
+                        </color>
+                    </Stop>
+                </stops>
+            </LinearGradient>
+        </textFill>
+    </Label>
 
     <!-- Contenedor para la imagen y los detalles -->
     <HBox spacing="15">
@@ -17,20 +37,144 @@
 
         <!-- Contenedor para los detalles del video -->
         <VBox spacing="5">
-            <Label fx:id="tituloLabel" text="Titulo del Video" style="-fx-font-size: 18px;"/>
-            <Label fx:id="descripcionLabel" text="Descripción" wrapText="true"/>
+            <Label fx:id="tituloLabel" text="Titulo del Video" style="-fx-font-size: 18px;">
+                <textFill>
+                    <LinearGradient endX="1.0" endY="1.0">
+                        <stops>
+                            <Stop>
+                                <color>
+                                    <Color red="0.5" green="0.5948275327682495" blue="1.0" />
+                                </color>
+                            </Stop>
+                            <Stop offset="1.0">
+                                <color>
+                                    <Color red="0.5648888945579529" green="0.41333332657814026" blue="0.6526315808296204" />
+                                </color>
+                            </Stop>
+                        </stops>
+                    </LinearGradient>
+                </textFill>
+            </Label>
+            <Label fx:id="descripcionLabel" text="Descripción" wrapText="true">
+                <textFill>
+                    <LinearGradient endX="1.0" endY="1.0">
+                        <stops>
+                            <Stop>
+                                <color>
+                                    <Color red="0.5" green="0.5948275327682495" blue="1.0" />
+                                </color>
+                            </Stop>
+                            <Stop offset="1.0">
+                                <color>
+                                    <Color red="0.5648888945579529" green="0.41333332657814026" blue="0.6526315808296204" />
+                                </color>
+                            </Stop>
+                        </stops>
+                    </LinearGradient>
+                </textFill>
+            </Label>
             <!-- Más detalles como año, duración, categoría, etc. -->
             <HBox spacing="10">
-                <Label text="Año:"/>
-                <Label fx:id="anioLabel" text="2023"/>
+                <Label text="Año:"> <textFill>
+                    <LinearGradient endX="1.0" endY="1.0">
+                        <stops>
+                            <Stop>
+                                <color>
+                                    <Color red="0.5" green="0.5948275327682495" blue="1.0" />
+                                </color>
+                            </Stop>
+                            <Stop offset="1.0">
+                                <color>
+                                    <Color red="0.5648888945579529" green="0.41333332657814026" blue="0.6526315808296204" />
+                                </color>
+                            </Stop>
+                        </stops>
+                    </LinearGradient>
+                </textFill></Label>
+                <Label fx:id="anioLabel" text="2023"> <textFill>
+                    <LinearGradient endX="1.0" endY="1.0">
+                        <stops>
+                            <Stop>
+                                <color>
+                                    <Color red="0.5" green="0.5948275327682495" blue="1.0" />
+                                </color>
+                            </Stop>
+                            <Stop offset="1.0">
+                                <color>
+                                    <Color red="0.5648888945579529" green="0.41333332657814026" blue="0.6526315808296204" />
+                                </color>
+                            </Stop>
+                        </stops>
+                    </LinearGradient>
+                </textFill></Label>
             </HBox>
             <HBox spacing="10">
-                <Label text="Duración:"/>
-                <Label fx:id="duracionLabel" text="120 minutos"/>
+                <Label text="Duración:"> <textFill>
+                    <LinearGradient endX="1.0" endY="1.0">
+                        <stops>
+                            <Stop>
+                                <color>
+                                    <Color red="0.5" green="0.5948275327682495" blue="1.0" />
+                                </color>
+                            </Stop>
+                            <Stop offset="1.0">
+                                <color>
+                                    <Color red="0.5648888945579529" green="0.41333332657814026" blue="0.6526315808296204" />
+                                </color>
+                            </Stop>
+                        </stops>
+                    </LinearGradient>
+                </textFill></Label>
+                <Label fx:id="duracionLabel" text="120 minutos"> <textFill>
+                    <LinearGradient endX="1.0" endY="1.0">
+                        <stops>
+                            <Stop>
+                                <color>
+                                    <Color red="0.5" green="0.5948275327682495" blue="1.0" />
+                                </color>
+                            </Stop>
+                            <Stop offset="1.0">
+                                <color>
+                                    <Color red="0.5648888945579529" green="0.41333332657814026" blue="0.6526315808296204" />
+                                </color>
+                            </Stop>
+                        </stops>
+                    </LinearGradient>
+                </textFill></Label>
             </HBox>
             <HBox spacing="10">
-                <Label text="Categoría:"/>
-                <Label fx:id="categoriaLabel" text="Acción"/>
+                <Label text="Categoría:"> <textFill>
+                    <LinearGradient endX="1.0" endY="1.0">
+                        <stops>
+                            <Stop>
+                                <color>
+                                    <Color red="0.5" green="0.5948275327682495" blue="1.0" />
+                                </color>
+                            </Stop>
+                            <Stop offset="1.0">
+                                <color>
+                                    <Color red="0.5648888945579529" green="0.41333332657814026" blue="0.6526315808296204" />
+                                </color>
+                            </Stop>
+                        </stops>
+                    </LinearGradient>
+                </textFill></Label>
+                <Label fx:id="categoriaLabel" text="Acción"> <textFill>
+                    <LinearGradient endX="1.0" endY="1.0">
+                        <stops>
+                            <Stop>
+                                <color>
+                                    <Color red="0.5" green="0.5948275327682495" blue="1.0" />
+                                </color>
+                            </Stop>
+                            <Stop offset="1.0">
+                                <color>
+                                    <Color red="0.5648888945579529" green="0.41333332657814026" blue="0.6526315808296204" />
+                                </color>
+                            </Stop>
+                        </stops>
+                    </LinearGradient>
+                </textFill></Label>
             </HBox>
         </VBox>
     </HBox>
@@ -43,7 +187,22 @@
 
     <!-- Sección de comentarios o calificaciones -->
     <VBox spacing="10">
-        <Label text="Comentarios" style="-fx-font-size: 18px;"/>
+        <Label text="Comentarios" style="-fx-font-size: 18px;"> <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+                <stops>
+                    <Stop>
+                        <color>
+                            <Color red="0.5" green="0.5948275327682495" blue="1.0" />
+                        </color>
+                    </Stop>
+                    <Stop offset="1.0">
+                        <color>
+                            <Color red="0.5648888945579529" green="0.41333332657814026" blue="0.6526315808296204" />
+                        </color>
+                    </Stop>
+                </stops>
+            </LinearGradient>
+        </textFill></Label>
         <ListView fx:id="comentariosListView" prefHeight="100"/>
     </VBox>
 </VBox>
