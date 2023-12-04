@@ -1,4 +1,4 @@
-package reportes;
+package com.example.demo2.reportes;
 
 import com.example.demo2.dao.FavoritosDAOImpl;
 import com.example.demo2.modelo.Favoritos;
@@ -64,4 +64,3 @@ public class PdfFavoritos {
         }
     }
 }
-

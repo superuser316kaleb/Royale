@@ -8,6 +8,7 @@ module com.example.demo2 {
     requires kernel;
     requires layout;
     requires io;
+    requires java.desktop;
 
 
     opens com.example.demo2 to javafx.fxml;

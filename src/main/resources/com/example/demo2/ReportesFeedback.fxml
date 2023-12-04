@@ -9,7 +9,7 @@
 <?import javafx.scene.paint.LinearGradient?>
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.paint.Color?>
-<VBox alignment="TOP_CENTER" prefHeight="324.0" prefWidth="360.0" spacing="20" styleClass="fondoGradiente" stylesheets="@css/styles.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+<VBox alignment="TOP_CENTER" prefHeight="324.0" prefWidth="360.0" spacing="20" styleClass="fondoGradiente" stylesheets="@css/styles.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" >
     <padding><Insets bottom="20" left="20" right="20" top="20" /></padding>
 
     <!-- Título de la sección -->
@@ -37,7 +37,7 @@
 
 
     <!-- Botón para enviar el feedback -->
-    <Button  fx:id="enviarFeedbackButton" onAction="#masVistosReporte" prefHeight="60.0" prefWidth="371.0" styleClass="button_options"  text="Vídeos Más Vistos" >
+    <Button  fx:id="masVistos" onAction="#masVistosReporte" prefHeight="60.0" prefWidth="371.0" styleClass="button_options"  text="Vídeos Más Vistos" >
         <cursor>
             <Cursor fx:constant="HAND" />
         </cursor>
@@ -45,7 +45,7 @@
             <FontIcon iconColor="white" iconLiteral="fas-file-pdf" iconSize="30" />
         </graphic>
     </Button>
-    <Button  fx:id="enviarFeedbackButton1" onAction="#mejorEvaluadosReporte"  prefHeight="60.0" prefWidth="371.0" styleClass="button_options"  text="Mejor Evaluados"  >
+    <Button  fx:id="favoritos" onAction="#mejorEvaluadosReporte"  prefHeight="60.0" prefWidth="371.0" styleClass="button_options"  text="Mejor Evaluados"  >
         <cursor>
             <Cursor fx:constant="HAND" />
         </cursor>
