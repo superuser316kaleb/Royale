@@ -9,10 +9,10 @@
 
 <AnchorPane prefHeight="517.0" prefWidth="751.0" styleClass="fondoGradiente" stylesheets="@css/styles.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <VBox layoutX="-2.0" layoutY="-2.0" prefHeight="441.0" prefWidth="751.0">
+      <VBox layoutX="-2.0" layoutY="-2.0" prefHeight="800" prefWidth="1600" alignment="CENTER">
          <children>
-            <Button mnemonicParsing="false" onAction="#cargarDashboard" styleClass="button_options" text="Volver" />
-            <WebView fx:id="webView" prefHeight="440.0" prefWidth="704.0" />
+            <Button  alignment="CENTER" mnemonicParsing="false" onAction="#cargarDashboard" styleClass="button_options" text="Volver" />
+            <WebView fx:id="webView" prefHeight="800.0" prefWidth="1600.0" />
             <HBox alignment="TOP_LEFT" spacing="10">
                <padding><Insets left="10" right="10" top="10" /></padding>
 

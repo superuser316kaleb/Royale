@@ -35,7 +35,7 @@ public class DetallesUsuarioControlador {
     @FXML
     private void initialize() {
         usuarioActual = usuarioDAO.obtenerPorUsuario(usuarioCache.getNombreUsuario());
-       // tarjeta = usuarioDAO.getTarjetaById_usuario(usuarioActual.getId_usuario());
+       tarjeta = usuarioDAO.getTarjetaById_usuario(usuarioActual.getId_usuario());
         nombreTextField.setText(usuarioActual.getNombre());
         apellidoTextField.setText(usuarioActual.getApellido());
         emailTextField.setText(usuarioActual.getEmail());
@@ -49,15 +49,14 @@ public class DetallesUsuarioControlador {
         }else if (usuarioActual.getId_tipo_suscripcion()==3){
             lblsuscripcion.setText("Premium");
         }
-       lblterminacion.setText("xxxx-xxxx-xxxx-"+ usuarioCache.getTarjetaterminacion());
+       lblterminacion.setText("xxxx-xxxx-xxxx-"+ tarjeta.getTerminacion());
         lbltipo.setText(usuarioCache.getTipoTarjeta());
     }
 
 
     @FXML
     private void guardarCambios() {
-        // Aquí iría la lógica para tomar los datos de los campos de texto
-        // y actualizarlos en la base de datos.
+
     }
 
     public void setStage(Stage stageA) {

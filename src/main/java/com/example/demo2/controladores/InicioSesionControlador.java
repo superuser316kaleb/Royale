@@ -58,12 +58,12 @@ public class InicioSesionControlador implements Initializable {
     protected void onLoginButtonClick() throws IOException {
 
         String username = usernameField.getText();
-      //  usuario=usuDao.obtenerPorUsuario(username);
+        usuario=usuDao.obtenerPorUsuario(username);
         usuarioCache.setNombreUsuario(username);
-        //tarjeta=usuDao.getTarjetaById_usuario(usuario.getId_usuario());
+        tarjeta=usuDao.getTarjetaById_usuario(usuario.getId_usuario());
         usuarioCache.setTarjetaterminacion(String.valueOf(tarjeta.getTerminacion()));
-        if (tarjeta.getId_metodo()==1) usuarioCache.setTipoTarjeta("Débito");
-        else usuarioCache.setTipoTarjeta("Crédito");
+        if (tarjeta.getId_metodo()==1) usuarioCache.setTipoTarjeta("Crédito");
+        else usuarioCache.setTipoTarjeta("Débito");
         String password = passwordField.getText();
 
 
