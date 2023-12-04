@@ -15,7 +15,7 @@ import static com.example.demo2.MySQLConnection.getConnection;
 
 public class UsuarioDAOImpl extends MySQLConnection implements Dao<Usuario> {
 
-Connection conn = getConnection();
+    Connection conn = MySQLConnection.getConnection();
 
 
     public Usuario obtenerPorUsuario(String nusuario) {
@@ -130,6 +130,26 @@ Connection conn = getConnection();
             throw new RuntimeException(e);
         }
         return next;
+    }
+
+    public Tarjeta getTarjetaById_usuario(int id_usuario) {
+        String query = "select * from usuario_metodo where id_usuario = ?;";
+        Tarjeta tarjeta = new Tarjeta();
+        try {
+            PreparedStatement ps = conn.prepareStatement(query);
+            ps.setInt(1, id_usuario);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                tarjeta.setId_usuario(rs.getInt(1));
+                tarjeta.setId_metodo(rs.getInt(2));
+                tarjeta.setTerminacion(rs.getInt(3));
+                tarjeta.setCvv(rs.getInt(4));
+                tarjeta.setFecha_caducidad(rs.getString(5));
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return tarjeta;
     }
 
     @Override

@@ -30,6 +30,7 @@ import java.util.ResourceBundle;
 
 
 public class DashboardControlador implements Initializable {
+
     Stage stage;
     private Usuario usuarioActual;
     private FlowPane panelRecomendaciones;
@@ -214,7 +215,7 @@ public class DashboardControlador implements Initializable {
 
             ResultSet rs = pstmt.executeQuery();
             while (rs.next()) {
-                rutas.add(rs.getString("imagsen"));
+                rutas.add(rs.getString("imagenp"));
             }
         } catch (Exception e) {
             e.printStackTrace();

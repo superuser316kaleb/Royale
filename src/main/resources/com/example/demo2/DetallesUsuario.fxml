@@ -44,7 +44,7 @@
          </LinearGradient>
       </textFill></Label>
     <HBox spacing="20">
-    <Label fx:id="lblusuario" style="-fx-font-size: 16px; -fx-font-weight: bold;" text="master_chief">
+    <Label fx:id="lblusuario" style="-fx-font-size: 16px; -fx-font-weight: bold;" text=".">
          <textFill>
             <LinearGradient cycleMethod="REFLECT" endX="1.0" endY="1.0" startX="0.424242430564129">
                <stops>
@@ -61,7 +61,7 @@
                </stops>
             </LinearGradient>
          </textFill></Label>
-    <Label fx:id="lblsuscripcion" style="-fx-font-size: 16px; -fx-font-weight: bold;" text="PREMIUM">
+    <Label fx:id="lblsuscripcion" style="-fx-font-size: 16px; -fx-font-weight: bold;" text=".">
          <textFill>
             <LinearGradient cycleMethod="REFLECT" endX="1.0" endY="1.0" startX="0.424242430564129">
                <stops>
@@ -96,7 +96,7 @@
                </stops>
             </LinearGradient>
          </textFill></Label>
-    <Label fx:id="lbltipo" style="-fx-font-size: 16px; -fx-font-weight: bold;" text="Débito">
+    <Label fx:id="lbltipo" style="-fx-font-size: 16px; -fx-font-weight: bold;" text="---">
          <textFill>
             <LinearGradient cycleMethod="REFLECT" endX="1.0" endY="1.0" startX="0.424242430564129">
                <stops>

@@ -4,6 +4,7 @@ import com.example.demo2.HelloApplication;
 import com.example.demo2.MySQLConnection;
 import com.example.demo2.cache.usuarioCache;
 import com.example.demo2.dao.UsuarioDAOImpl;
+import com.example.demo2.modelo.Tarjeta;
 import com.example.demo2.modelo.Usuario;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -27,7 +28,8 @@ import java.util.ResourceBundle;
 public class InicioSesionControlador implements Initializable {
 
 
-    Connection conn = MySQLConnection.getConnection();
+
+    Tarjeta tarjeta = new Tarjeta();
 
     UsuarioDAOImpl usuDao = new UsuarioDAOImpl();
     Usuario usuario = new Usuario();
@@ -54,8 +56,14 @@ public class InicioSesionControlador implements Initializable {
 
     @FXML
     protected void onLoginButtonClick() throws IOException {
+
         String username = usernameField.getText();
+      //  usuario=usuDao.obtenerPorUsuario(username);
         usuarioCache.setNombreUsuario(username);
+        //tarjeta=usuDao.getTarjetaById_usuario(usuario.getId_usuario());
+        usuarioCache.setTarjetaterminacion(String.valueOf(tarjeta.getTerminacion()));
+        if (tarjeta.getId_metodo()==1) usuarioCache.setTipoTarjeta("Débito");
+        else usuarioCache.setTipoTarjeta("Crédito");
         String password = passwordField.getText();
 
 
