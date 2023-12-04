@@ -2,10 +2,10 @@ package com.example.demo2.dao;
 
 import com.example.demo2.MySQLConnection;
 import com.example.demo2.modelo.Canal;
+import com.example.demo2.modelo.Usuario;
+
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 
 public class CanalDAOImpl extends MySQLConnection implements Dao<Canal>{
@@ -31,23 +31,30 @@ public class CanalDAOImpl extends MySQLConnection implements Dao<Canal>{
         return null;
     }
 
-    public List<Canal> obtenerTodos() {
-        List<Canal> canales = new ArrayList<>();
-        String sql = "SELECT * FROM canales";
+    public List<Map<Integer,String>> obtenerTodos() {
+
+        List<Map<Integer,String>> lista = new ArrayList<Map<Integer,String>>();
+        String sql = "select c.canal,u.nombre,u.apellido,u.domicilio,u.telefono,u.usuario,u.email " +
+                "from canales c join usuarios u on c.id_usuario = u.id_usuario";
         try (Connection conn = getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql);
              ResultSet rs = pstmt.executeQuery()) {
             while (rs.next()) {
-                Canal canal = new Canal();
-                canal.setId(rs.getInt("id"));
-                canal.setNombre(rs.getString("nombre"));
-                // Suponiendo que hay otros campos, los inicializas aquí.
-                canales.add(canal);
+                Map<Integer,String> map= new HashMap<>();
+                map.put(1,rs.getString("canal"));
+                map.put(2,rs.getString("nombre"));
+                map.put(3,rs.getString("apellido"));
+                map.put(4,rs.getString("domicilio"));
+                map.put(5,rs.getString("telefono"));
+                map.put(6,rs.getString("usuario"));
+                map.put(7,rs.getString("email"));
+                lista.add(map);
+                //canales.add(canal);
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return canales;
+        return lista;
     }
 
     public void guardar(Canal canal) {

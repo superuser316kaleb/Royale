@@ -81,7 +81,7 @@ public class InicioSesionControlador implements Initializable {
             }else {
                 feedbackText.setText("Inicio de sesión exitoso.");
                cargarDashboard();
-
+                this.stage.close();
             }
         }
     }
