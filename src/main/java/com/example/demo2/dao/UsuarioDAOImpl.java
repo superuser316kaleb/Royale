@@ -20,7 +20,7 @@ public class UsuarioDAOImpl extends MySQLConnection implements Dao<Usuario> {
 
     public Usuario obtenerPorUsuario(String nusuario) {
         String sql = "SELECT * FROM usuarios WHERE usuario = ?";
-        try (Connection conn = getConnection();
+        try (
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, nusuario);
             ResultSet rs = pstmt.executeQuery();
@@ -48,7 +48,7 @@ public class UsuarioDAOImpl extends MySQLConnection implements Dao<Usuario> {
     public List<Usuario> obtenerTodos() {
         List<Usuario> usuarios = new ArrayList<>();
         String sql = "SELECT * FROM usuarios";
-        try (Connection conn = getConnection();
+        try (
              PreparedStatement pstmt = conn.prepareStatement(sql);
              ResultSet rs = pstmt.executeQuery()) {
             while (rs.next()) {
@@ -140,11 +140,11 @@ public class UsuarioDAOImpl extends MySQLConnection implements Dao<Usuario> {
             ps.setInt(1, id_usuario);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
-                tarjeta.setId_usuario(rs.getInt(1));
-                tarjeta.setId_metodo(rs.getInt(2));
-                tarjeta.setTerminacion(rs.getInt(3));
-                tarjeta.setCvv(rs.getInt(4));
-                tarjeta.setFecha_caducidad(rs.getString(5));
+                tarjeta.setId_usuario(rs.getInt("id_usuario"));
+                tarjeta.setId_metodo(rs.getInt("id_metodo_pago"));
+                tarjeta.setTerminacion(rs.getInt("terminacion"));
+                tarjeta.setCvv(rs.getInt("cvv"));
+                tarjeta.setFecha_caducidad(rs.getString("fecha_caducidad"));
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -155,7 +155,7 @@ public class UsuarioDAOImpl extends MySQLConnection implements Dao<Usuario> {
     @Override
     public boolean update(Usuario usuario) {
         String sql = "UPDATE usuarios SET nombre = ?, email = ? WHERE id = ?";
-        try (Connection conn = getConnection();
+        try (
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, usuario.getNombre());
             pstmt.setString(2, usuario.getEmail());
