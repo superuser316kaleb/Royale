@@ -16,7 +16,7 @@ import java.io.IOException;
 
 public class ReportesFeedbackControlador {
     Stage stage;
-    public static final String DEST1 = "results/pdf/lista de tareas.pdf";
+    public static final String DEST1 = "results/pdf/lista de favoritos.pdf";
     public static final String DEST2 = "results/pdf/Reporte de canales.pdf";
     @FXML
     private TextArea feedbackTextArea;
