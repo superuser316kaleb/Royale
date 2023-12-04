@@ -17,14 +17,18 @@ public class FavoritosDAOImpl extends MySQLConnection implements Dao<Favoritos> 
     Connection conn = getConnection();
     private int idUsuario;
 
-    public void agregarFavorito(Favoritos favorito) {
-        String query = "INSERT INTO favoritos (id_usuario, id_video) VALUES (?, ?)";
-        try (PreparedStatement statement = conn.prepareStatement(query)) {
-            statement.setInt(1, favorito.getId_usuario());
-            statement.setInt(2, favorito.getId_video());
-            statement.executeUpdate();
+    public boolean agregarAFavoritos(int idFavorito, int idUsuario, int idVideo) {
+        String sql = "INSERT INTO favoritos (id_favorito, id_usuario, id_video) VALUES (?, ?, ?)";
+
+        try (PreparedStatement statement = conn.prepareStatement(sql)) {
+            statement.setInt(1, idFavorito);
+            statement.setInt(2, idUsuario);
+            statement.setInt(3, idVideo);
+            int filasInsertadas = statement.executeUpdate();
+            return filasInsertadas > 0;
         } catch (SQLException e) {
             e.printStackTrace();
+            return false;
         }
     }
 
@@ -45,6 +49,34 @@ public class FavoritosDAOImpl extends MySQLConnection implements Dao<Favoritos> 
             e.printStackTrace();
         }
         return listaFavoritos;
+    }
+    public boolean agregarAFavoritos(int idUsuario, int idVideo) {
+        String sql = "INSERT INTO favoritos (id_usuario, id_video) VALUES (?, ?)";
+        try (PreparedStatement statement = conn.prepareStatement(sql)) {
+            statement.setInt(1, idUsuario);
+            statement.setInt(2, idVideo);
+            int filasInsertadas = statement.executeUpdate();
+            return filasInsertadas > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+    public int obtenerNuevoIdFavorito() {
+        int nuevoId = 0; // Valor inicial por defecto o puedes tomar otro valor que asegure la unicidad
+
+        // Lógica para obtener un nuevo ID único, por ejemplo, puedes hacer una consulta a la base de datos para obtener el próximo valor disponible
+        String sql = "SELECT MAX(id_favorito) FROM favoritos"; // Consulta para obtener el máximo ID existente
+        try (PreparedStatement statement = conn.prepareStatement(sql)) {
+            ResultSet resultSet = statement.executeQuery();
+            if (resultSet.next()) {
+                nuevoId = resultSet.getInt(1) + 1; // Incrementar el máximo ID existente
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return nuevoId;
     }
 
     @Override

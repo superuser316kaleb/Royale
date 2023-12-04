@@ -164,15 +164,15 @@ public class DashboardControlador implements Initializable {
     }
     public void reports() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("ReportesFeedback.fxml"));
-        ReportesFeedbackControlador reportesFeedbackControlador = new ReportesFeedbackControlador();
-        fxmlLoader.setController(reportesFeedbackControlador);
+        //ReportesFeedbackControlador reportesFeedbackControlador = new ReportesFeedbackControlador();
+        //fxmlLoader.setController(reportesFeedbackControlador);
 
         Parent root = fxmlLoader.load();
 
         Stage stage = new Stage();
         Scene scene = new Scene(root);
         stage.setScene(scene);
-        reportesFeedbackControlador.setStage(stage);
+        //reportesFeedbackControlador.setStage(stage);
         stage.show();
         this.stage.close();
     }

@@ -1,6 +1,7 @@
 package com.example.demo2.controladores;
 
 import com.example.demo2.HelloApplication;
+import com.example.demo2.reportes.PdfCanales;
 import com.example.demo2.reportes.PdfFavoritos;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,12 +16,21 @@ import java.io.IOException;
 
 public class ReportesFeedbackControlador {
     Stage stage;
+    public static final String DEST1 = "results/pdf/lista de tareas.pdf";
+    public static final String DEST2 = "results/pdf/Reporte de canales.pdf";
     @FXML
     private TextArea feedbackTextArea;
 
     @FXML
-    private void masVistosReporte() {
-        // Aquí iría la lógica para generar el reporte de los videos más vistos.
+    private void canalesReporte() {
+        try {
+            File file = new File(DEST2);
+            file.getParentFile().mkdirs();
+            new PdfCanales().crearPdf(DEST2);
+            openFile(DEST2);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
     @FXML
     public void mejorEvaluadosReporte() {
@@ -36,24 +46,21 @@ public class ReportesFeedbackControlador {
 
 
     }
-    public static final String DEST1 = "results/pdf/lista de tareas.pdf";
+
     public void setStage(Stage stageA) {
         stage = stageA;
     }
     @FXML
     protected void cargarDashboard() throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource(   "Dashboard.fxml"));
-        //Cargar el controlador
+
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Dashboard.fxml"));
         DashboardControlador dashboardControlador = new DashboardControlador();
-        //Colocar el controlador al FXML
         fxmlLoader.setController(dashboardControlador);
-
         Parent root = fxmlLoader.load();
-
         Stage stage = new Stage();
         Scene scene = new Scene(root);
-
         stage.setScene(scene);
+        stage.setMaximized(true);
         dashboardControlador.setStage(stage);
         stage.show();
         this.stage.close();

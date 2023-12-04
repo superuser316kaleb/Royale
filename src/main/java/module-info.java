@@ -8,7 +8,11 @@ module com.example.demo2 {
     requires kernel;
     requires layout;
     requires io;
+    requires org.slf4j;
+    requires org.apache.logging.log4j;
+
     requires java.desktop;
+    requires org.controlsfx.controls;
 
 
     opens com.example.demo2 to javafx.fxml;
