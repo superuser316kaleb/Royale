@@ -29,7 +29,11 @@ public class MySQLConnection {
 
     public static Connection getConnection()
     {
-        if(conn == null) Connect();
+        try {
+            if(conn == null|| conn.isClosed()) Connect();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
         return conn;
     }
 
