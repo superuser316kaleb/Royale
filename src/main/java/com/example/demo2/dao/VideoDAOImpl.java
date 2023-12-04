@@ -96,12 +96,12 @@ public class VideoDAOImpl extends MySQLConnection implements Dao<Video>{
     }
     public List<String> obtenerRutasImagenesDeBD() {
         List<String> rutas = new ArrayList<>();
-        String sql = "SELECT imagen FROM videos";
+        String sql = "SELECT imagen FROM videos where imagen is not null";
         try (
                 PreparedStatement pstmt = conn.prepareStatement(sql)) {
             ResultSet rs = pstmt.executeQuery();
             while (rs.next()) {
-                rutas.add(rs.getString("imagenp"));
+                rutas.add(rs.getString("imagen"));
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -109,11 +109,26 @@ public class VideoDAOImpl extends MySQLConnection implements Dao<Video>{
         }
         return rutas;
     }
+    public List<String> obtenerURLS() {
+        List<String> url = new ArrayList<>();
+        String sql = "SELECT url FROM videos where imagen is not null";
+        try (
+                PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            ResultSet rs = pstmt.executeQuery();
+            while (rs.next()) {
+                url.add(rs.getString("url"));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+
+        }
+        return url;
+    }
 
 
     public void actualizar(Video video) {
         String sql = "UPDATE videos SET titulo = ?, descripcion = ? WHERE id = ?";
-        try (Connection conn = getConnection();
+        try (
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, video.getTitulo());
             pstmt.setString(2, video.getDescripcion());
