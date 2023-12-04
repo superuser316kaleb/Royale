@@ -1,6 +1,7 @@
 package com.example.demo2.controladores;
 
 import com.example.demo2.HelloApplication;
+import com.example.demo2.cache.videoCache;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -24,11 +25,13 @@ public class ReproductorVideosControlador implements Initializable {
     WebEngine webEngine;
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        cargarVideo();
+        String url = videoCache.getUrlVideo();
+        cargarVideo(url);
+        System.out.println(videoCache.getUrlVideo());
     }
-    protected void cargarVideo(){
+    protected void cargarVideo(String url){
         webEngine = webView.getEngine();
-        webEngine.load("https://www.youtube.com/embed/1cGmWPI5TaI?si=0qgxcrDMKVy8A24g");
+        webEngine.load(url);
     }
     public void setStage(Stage stageA) {
         stage = stageA;
