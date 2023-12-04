@@ -94,6 +94,21 @@ public class VideoDAOImpl extends MySQLConnection implements Dao<Video>{
             e.printStackTrace();
         }
     }
+    public List<String> obtenerRutasImagenesDeBD() {
+        List<String> rutas = new ArrayList<>();
+        String sql = "SELECT imagen FROM videos";
+        try (
+                PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            ResultSet rs = pstmt.executeQuery();
+            while (rs.next()) {
+                rutas.add(rs.getString("imagenp"));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+
+        }
+        return rutas;
+    }
 
 
     public void actualizar(Video video) {

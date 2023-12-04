@@ -3,6 +3,7 @@ package com.example.demo2.controladores;
 import com.example.demo2.HelloApplication;
 import com.example.demo2.MySQLConnection;
 import com.example.demo2.cache.usuarioCache;
+import com.example.demo2.dao.VideoDAOImpl;
 import com.example.demo2.modelo.Usuario;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -13,9 +14,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -33,8 +36,13 @@ public class DashboardControlador implements Initializable {
 
     Stage stage;
     private Usuario usuarioActual;
+    @FXML
     private FlowPane panelRecomendaciones;
-
+    @FXML
+    HBox carruselDestacados;
+    @FXML
+    ListView listaNoticias;
+    VideoDAOImpl videoDAO = new VideoDAOImpl();
     @FXML
     Button btnInfo, btnCanales, btnfavorites, btnSalesReport, btnReports;
     @FXML
@@ -48,7 +56,11 @@ public class DashboardControlador implements Initializable {
         btnfavorites.setOnAction(handlerButtons);
         btnSalesReport.setOnAction(handlerButtons);
         btnReports.setOnAction(handlerButtons);
-        cargarImagenesRecomendadas();
+        //cargarImagenesRecomendadas();
+        ImageView image = new ImageView(String.valueOf(getClass().getResource("/portadas/wtm.jpeg")));
+        ImageView image2 = new ImageView(String.valueOf(getClass().getResource("/portadas/heuh.jpeg")));
+        carruselDestacados.getChildren().add(image);
+        carruselDestacados.getChildren().add(image2);
     }
 
     EventHandler<ActionEvent> handlerButtons = new EventHandler<ActionEvent>() {
@@ -196,7 +208,7 @@ public class DashboardControlador implements Initializable {
 }
     private void cargarImagenesRecomendadas() {
 
-        List<String> rutasImagenes = obtenerRutasImagenesDeBD();
+        List<String> rutasImagenes = videoDAO.obtenerRutasImagenesDeBD();
 
         for (String ruta : rutasImagenes) {
             Image imagen = new Image("file:" + ruta);
@@ -205,22 +217,8 @@ public class DashboardControlador implements Initializable {
             imageView.setFitHeight(100); // tamaño
             imageView.setPreserveRatio(true);
             panelRecomendaciones.getChildren().add(imageView);
-        }
-    }
-    private List<String> obtenerRutasImagenesDeBD() {
-        List<String> rutas = new ArrayList<>();
-        String sql = "SELECT imagen FROM videos";
-        try (Connection conn = MySQLConnection.getConnection();
-             PreparedStatement pstmt = conn.prepareStatement(sql)) {
-
-            ResultSet rs = pstmt.executeQuery();
-            while (rs.next()) {
-                rutas.add(rs.getString("imagenp"));
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
 
         }
-        return rutas;
     }
+
 }
