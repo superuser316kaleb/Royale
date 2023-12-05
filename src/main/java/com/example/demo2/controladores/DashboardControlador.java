@@ -38,7 +38,7 @@ public class DashboardControlador implements Initializable {
     Stage stage;
     private Usuario usuarioActual;
     @FXML
-    private FlowPane panelRecomendaciones;
+    private FlowPane panelRecomendaciones,panelComedia;
     @FXML
     HBox carruselDestacados;
     @FXML
@@ -58,10 +58,8 @@ public class DashboardControlador implements Initializable {
         btnSalesReport.setOnAction(handlerButtons);
         btnReports.setOnAction(handlerButtons);
         cargarImagenesRecomendadas();
-//        ImageView image = new ImageView(String.valueOf(getClass().getResource("/portadas/got.jpg")));
-//        ImageView image2 = new ImageView(String.valueOf(getClass().getResource("/portadas/heuh.jpeg")));
-//        carruselDestacados.getChildren().add(image);
-//        carruselDestacados.getChildren().add(image2);
+        cargarSeccionComedia();
+
     }
 
     EventHandler<ActionEvent> handlerButtons = new EventHandler<ActionEvent>() {
@@ -216,7 +214,6 @@ public class DashboardControlador implements Initializable {
             imageView.setFitWidth(190); // tamaño
             imageView.setFitHeight(250); // tamaño
             imageView.setPreserveRatio(true);
-               // System.out.println(urls.get(rutasImagenes.indexOf(ruta)));
                 String url = urls.get(rutasImagenes.indexOf(ruta));
                 imageView.setOnMouseClicked(event -> {
                     try {
@@ -226,9 +223,27 @@ public class DashboardControlador implements Initializable {
                         e.printStackTrace();
                     }
                 });
-
             panelRecomendaciones.getChildren().add(imageView);
+        }
+    }private void cargarSeccionComedia() {
 
+        List<String> rutasImagenes = videoDAO.obtenerRutasImagenesComedia();
+        List<String> urls = videoDAO.obtenerURLSComedia();
+        for (String ruta : rutasImagenes) {
+            ImageView imageView = new ImageView(String.valueOf(getClass().getResource(ruta)));
+            imageView.setFitWidth(190); // tamaño
+            imageView.setFitHeight(250); // tamaño
+            imageView.setPreserveRatio(true);
+                String url = urls.get(rutasImagenes.indexOf(ruta));
+                imageView.setOnMouseClicked(event -> {
+                    try {
+                        videoCache.setUrlVideo(url);
+                        cargarReproductorVideos();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                });
+            panelComedia.getChildren().add(imageView);
         }
     }
 

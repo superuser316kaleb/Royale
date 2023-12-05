@@ -49,7 +49,7 @@ public class DetallesUsuarioControlador {
         }else if (usuarioActual.getId_tipo_suscripcion()==3){
             lblsuscripcion.setText("Premium");
         }
-       lblterminacion.setText("xxxx-xxxx-xxxx-"+ tarjeta.getTerminacion());
+       lblterminacion.setText("xxxx-xxxx-xxxx-"+ usuarioCache.getTarjetaterminacion());
         lbltipo.setText(usuarioCache.getTipoTarjeta());
     }
 

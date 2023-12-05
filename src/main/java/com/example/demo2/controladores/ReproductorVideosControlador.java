@@ -2,11 +2,13 @@ package com.example.demo2.controladores;
 
 import com.example.demo2.HelloApplication;
 import com.example.demo2.cache.videoCache;
+import com.example.demo2.dao.VideoDAOImpl;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.PopupControl;
 import javafx.scene.web.PopupFeatures;
 import javafx.scene.web.WebEngine;
@@ -20,15 +22,19 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class ReproductorVideosControlador implements Initializable {
+    VideoDAOImpl videoDAO = new VideoDAOImpl();
     Stage stage;
     @FXML
     WebView webView;
     WebEngine webEngine;
+    @FXML
+    Label titulo;
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         String url = videoCache.getUrlVideo();
-        System.out.println(url.replace("\"", ""));
+        titulo.setText(videoDAO.obtenerTituloPorURL(url.replace("\"", "")));
         cargarVideo(url.replace("\"", ""));
+
     }
     @FXML
     protected void cargarVideo(String url){
