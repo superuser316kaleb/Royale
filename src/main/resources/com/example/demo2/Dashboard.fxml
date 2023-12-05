@@ -91,10 +91,7 @@
                         </LinearGradient>
                     </textFill>
                 </Label>
-            <Button style="-fx-background-color: #363535; -fx-background-radius: 50; -fx-background-radius: 50; -fx-text-fill: white " text="Inicio" />
-            <Button style="-fx-background-color: #363535; -fx-background-radius: 50; -fx-background-radius: 50; -fx-text-fill: white " text="Categorías" />
-            <Button style="-fx-background-color: #363535; -fx-background-radius: 50; -fx-background-radius: 50; -fx-text-fill: white " text="Mi Lista" />
-            <Button style="-fx-background-color: #363535; -fx-background-radius: 50; -fx-background-radius: 50; -fx-text-fill: white " text="Perfil" />
+
             <!-- Barra de Búsqueda -->
             <TextField fx:id="busquedaTextField" promptText="Buscar..." style="-fx-background-radius: 50; -fx-background-radius: 50;" />
             <Button style="-fx-background-color: #363535; -fx-background-radius: 50; -fx-background-radius: 50; -fx-text-fill: white " text="Buscar" />
@@ -102,26 +99,6 @@
 
         <!-- Carrusel de Destacados -->
         <VBox alignment="CENTER" spacing="10">
-            <Label style="-fx-font-size: 25px;" text="Destacados">
-            <textFill>
-               <LinearGradient endX="1.0" endY="1.0">
-                  <stops>
-                     <Stop>
-                        <color>
-                           <Color red="0.5" green="0.5948275327682495" blue="1.0" />
-                        </color>
-                     </Stop>
-                     <Stop offset="1.0">
-                        <color>
-                           <Color red="0.5648888945579529" green="0.41333332657814026" blue="0.6526315808296204" />
-                        </color>
-                     </Stop>
-                  </stops>
-               </LinearGradient>
-            </textFill>
-            <font>
-               <Font size="20.0" />
-            </font></Label>
             <HBox fx:id="carruselDestacados" spacing="10">
                 <!-- Imágenes o tarjetas de videos destacados -->
             </HBox>
