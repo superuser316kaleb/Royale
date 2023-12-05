@@ -16,6 +16,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.FlowPane;
@@ -36,6 +37,8 @@ import java.util.ResourceBundle;
 public class DashboardControlador implements Initializable {
 
     Stage stage;
+    @FXML
+    TextField busquedaTextField;
     private Usuario usuarioActual;
     @FXML
     private FlowPane panelRecomendaciones,panelComedia;
@@ -44,8 +47,9 @@ public class DashboardControlador implements Initializable {
     @FXML
     ListView listaNoticias;
     VideoDAOImpl videoDAO = new VideoDAOImpl();
+
     @FXML
-    Button btnInfo, btnCanales, btnfavorites, btnSalesReport, btnReports;
+    Button btnInfo, btnCanales, btnfavorites, btnSalesReport, btnReports,btnbuscar;
     @FXML
     Label lblUser;
 
@@ -96,6 +100,13 @@ public class DashboardControlador implements Initializable {
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
+            }else if (event.getSource() == btnbuscar) {
+                try {
+                    videoCache.setUrlVideo(videoDAO.obtenerURLporTitulo(busquedaTextField.getText()));
+                    cargarReproductorVideos();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
             }
         }
     };
@@ -103,6 +114,12 @@ public class DashboardControlador implements Initializable {
     public void setStage(Stage stageA) {
         stage = stageA;
 
+    }
+
+    @FXML
+    public void busqueda() throws IOException {
+    videoCache.setUrlVideo(videoDAO.obtenerURLporTitulo(busquedaTextField.getText()));
+    cargarReproductorVideos();
     }
 
     @FXML

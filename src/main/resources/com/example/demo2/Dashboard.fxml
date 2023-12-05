@@ -94,7 +94,7 @@
 
             <!-- Barra de Búsqueda -->
             <TextField fx:id="busquedaTextField" promptText="Buscar..." style="-fx-background-radius: 50; -fx-background-radius: 50;" />
-            <Button style="-fx-background-color: #363535; -fx-background-radius: 50; -fx-background-radius: 50; -fx-text-fill: white " text="Buscar" />
+            <Button onAction="#busqueda" fx:id="btnbuscar" style="-fx-background-color: #363535; -fx-background-radius: 50; -fx-background-radius: 50; -fx-text-fill: white " text="Buscar" />
         </HBox>
 
         <!-- Carrusel de Destacados -->
@@ -124,11 +124,9 @@
                </LinearGradient>
             </textFill></Label>
             <HBox spacing="15">
-                <!-- Botones de categoría -->
             </HBox>
         </VBox>
 
-        <!-- Recomendaciones Personalizadas -->
             <VBox spacing="10">
                 <Label style="-fx-font-size: 25px;" text="Recomendado para ti">
                     <textFill>

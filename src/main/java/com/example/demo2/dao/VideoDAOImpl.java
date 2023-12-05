@@ -170,6 +170,22 @@ public class VideoDAOImpl extends MySQLConnection implements Dao<Video>{
         return titulo;
     }
 
+    public String obtenerURLporTitulo(String titulo) {
+        String url = "";
+        String sql = "SELECT url FROM videos where titulo = ?";
+        try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, titulo);
+            ResultSet rs = pstmt.executeQuery();
+            while (rs.next()) {
+                url = rs.getString("url");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+
+        }
+        return url;
+    }
+
     public void actualizar(Video video) {
         String sql = "UPDATE videos SET titulo = ?, descripcion = ? WHERE id = ?";
         try (
